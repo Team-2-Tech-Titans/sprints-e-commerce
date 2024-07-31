@@ -6,10 +6,55 @@
         <link rel="stylesheet" href="../assets/styles/normalize.css" />
         <link rel="stylesheet" href="../assets/styles/main.css" />
         <link rel="stylesheet" href="../assets/styles/responsive.css" />
-        <link rel="stylesheet" href="../assets/styles/all.min.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+        />
         <title>Titans Store | Product</title>
     </head>
-    <body></body>
+    <body>
+        <header>
+            <nav>
+                <span class="burger-icon">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </span>
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="../#Home">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="../#Collections">Collections</a>
+                    </li>
+                    <li class="nav-item"><a href="../#New">New</a></li>
+                </ul>
+            </nav>
+            <div class="header-logo">
+                <img src="./assets/images/logo.png" alt="Logo" />
+            </div>
+            <div class="header-btns">
+                <span id="toggle-theme" class="toggle-theme"> </span>
+                <a href="./cart/">
+                    <span class="cart">
+                        <span class="cart-text">Cart</span>
+                        <span class="cart-icon"
+                            ><img
+                                src="./assets/images/cart-icon.png"
+                                alt="Cart"
+                            />
+                            <span class="cart-count" id="cart-count"
+                                >5</span
+                            ></span
+                        >
+                    </span>
+                </a>
+                <span class="profile"
+                    ><img src="./assets/images/profile-icon.png" alt="Profile"
+                /></span>
+            </div>
+        </header>
+    </body>
     <script src="script.js"></script>
     <script src="../assets/scripts/main.js"></script>
 </html>
