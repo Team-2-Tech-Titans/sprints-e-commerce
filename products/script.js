@@ -21,7 +21,6 @@ const getProducts = async () => {
         displayPagination(data.pagination);
     } catch (error) {
         console.error(error);
-        alert("An error occurred while fetching the products.");
     }
 };
 

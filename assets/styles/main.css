@@ -48,6 +48,9 @@ img {
 a {
     text-decoration: none;
 }
+ul {
+    list-style: none;
+}
 /* Start Components */
 .container {
     width: 100%;
@@ -113,7 +116,6 @@ nav {
     width: 100%;
 }
 ul.nav-list {
-    list-style: none;
     display: flex;
     align-items: center;
     gap: 30px;
@@ -209,6 +211,133 @@ li.nav-item:hover::before {
 /* Nav End*/
 
 /* Home */
+.home-landing {
+    padding: 60px;
+}
+.home-landing li {
+    margin-top: 15px;
+}
+.home-landing a {
+    font-size: 1.5em;
+    color: #111;
+    font-family: Beatrice Deck Trial Regular;
+}
+.home-landing a:hover {
+    text-decoration: underline;
+}
+.search-container {
+    position: relative;
+}
+.search-container i {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 15px;
+    color: #111;
+}
+.search-bar,
+.landing-text-container button {
+    border: none;
+    outline: none;
+    background: #00000028;
+    font-size: 0.8em;
+    padding: 15px;
+    margin-top: 25px;
+    width: 25%;
+    text-align: right;
+}
+.bottom-landing {
+    display: flex;
+    width: 100%;
+}
+
+.image-slider-container {
+    position: relative;
+    width: 66.67%;
+}
+
+.landing-text-container {
+    width: 33.33%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.section-header h1 {
+    font-family: Beatrice Deck Trial Bold;
+    font-size: 3em;
+    margin: 0;
+    margin-top: 25px;
+}
+.section-header span {
+    color: #11111163;
+}
+.landing-text-container button {
+    text-align: center;
+    width: 60%;
+    display: flex;
+    cursor: pointer;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    transition: all 0.3s;
+    font-size: 1.5em;
+}
+.landing-text-container button:hover {
+    background-color: #00000054;
+}
+.landing-slider {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.landing-buttons {
+    display: flex;
+    gap: 10px;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    transform: translateX(-100%);
+    padding: 0 15px;
+}
+
+.landing-image-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 200%; /* 4 images * 50% each */
+    gap: 50px;
+}
+
+.landing-image-container img {
+    width: 50%;
+    height: auto;
+}
+
+.landing-button {
+    color: #111;
+    border: 1px solid #111;
+    width: 40px;
+    height: 40px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.landing-button:hover {
+    background-color: #00000054;
+}
+
+.landing-button:disabled {
+    color: #11111144;
+    border-color: #11111144;
+    cursor: default;
+}
+.landing-button:disabled:hover {
+    background-color: transparent;
+}
+
 /* Home End */
 
 /* Products */
