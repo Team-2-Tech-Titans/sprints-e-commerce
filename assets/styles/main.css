@@ -236,7 +236,12 @@ li.nav-item:hover::before {
 .filters h4 {
     margin: 0 0 10px 0;
 }
-
+.filter-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+}
 .filter-section {
     margin-bottom: 20px;
     padding-bottom: 15px;
@@ -246,8 +251,10 @@ li.nav-item:hover::before {
 .filter-options {
     display: flex;
     flex-direction: column;
+    overflow: hidden;
+    height: 0;
+    transition: all 0.3s ease;
 }
-
 .filter-options.size-options {
     flex-direction: row;
     flex-wrap: wrap;

@@ -13,6 +13,7 @@ const getProducts = async () => {
         const response = await fetch(url, options);
         const data = await response.json();
         displayProducts(data.results);
+        displayFilters(data.results);
         displayPagination(data.pagination);
         console.log(data.results);
     } catch (error) {
@@ -57,5 +58,45 @@ const nextPage = (pageNumber) => {
 };
 const prevPage = (pageNumber) => {
     window.location.href = `/products/?page=${pageNumber - 1}`;
+};
+
+const displayFilters = (products) => {
+    const categoryCounts = {};
+    products.forEach((prod) => {
+        if (categoryCounts[prod.categoryName]) {
+            categoryCounts[prod.categoryName]++;
+        } else {
+            categoryCounts[prod.categoryName] = 1;
+        }
+    });
+
+    const categories = Object.keys(categoryCounts).map((category) => {
+        return { name: category, count: categoryCounts[category] };
+    });
+
+    const categoriesFilter = document.querySelector(".filter-section.category");
+    categoriesFilter.innerHTML = `
+        <h4 class="filter-header" onclick="collapseFilter(event)">Category<span><i class="fa-solid fa-angle-right"></i></span></h4>
+        <div class="filter-options">
+        ${categories
+            .map(
+                (category) =>
+                    `<label><input type="checkbox"/>${category.name} (<span style="color:blue;">${category.count}</span>)</label>`
+            )
+            .join("")}
+        </div>
+    `;
+};
+
+const collapseFilter = (e) => {
+    console.log(e);
+    const content = e.target.nextElementSibling;
+    if (content.classList.contains("extend")) {
+        content.classList.remove("extend");
+        content.style.height = "0";
+    } else {
+        content.classList.add("extend");
+        content.style.height = content.scrollHeight + "px";
+    }
 };
 getProducts();
