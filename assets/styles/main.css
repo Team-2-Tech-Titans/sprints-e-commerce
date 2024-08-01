@@ -452,7 +452,12 @@ h1 {
 }
 
 .size-options button {
-    margin-right: 10px;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px;
 }
 
 .thumbnails img {
