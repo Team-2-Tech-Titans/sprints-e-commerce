@@ -384,6 +384,31 @@ h1 {
     color: #333;
     font-weight: bold;
 }
+.pagination {
+    margin: auto;
+    margin-top: 70px;
+    text-align: center;
+}
+.pagination span {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    border: 1px solid #111;
+    height: 50px;
+    width: 50px;
+    transition: all 0.3s;
+}
+.pagination span:nth-child(1):hover,
+.pagination span:nth-child(3):hover {
+    background-color: #ccc;
+}
+.pagination span:nth-child(2) {
+    border: none;
+    cursor: default;
+    font-size: 1.5em;
+}
 /* Products End*/
 
 /* Product */
