@@ -255,13 +255,15 @@ li.nav-item:hover::before {
     height: 0;
     transition: all 0.3s ease;
 }
-.filter-options.size-options {
+.size-options {
+    display: flex;
+    flex-direction: column;
     flex-direction: row;
-    flex-wrap: wrap;
     gap: 10px;
 }
 
-.filter-options button {
+.filter-options button,
+.size-options button {
     display: block;
     margin: 5px 0;
     background: none;
@@ -379,10 +381,15 @@ h1 {
     justify-content: space-between;
 }
 .product-info span {
-    display: block;
+    display: inline-flex;
     color: #888;
 }
-
+.prod-card-color {
+    width: 15px;
+    height: 15px;
+    border: 1px solid #888;
+    margin-left: 10px;
+}
 .product-info h4 {
     margin: 10px 0;
 }
