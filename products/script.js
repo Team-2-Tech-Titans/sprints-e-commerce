@@ -25,7 +25,7 @@ const displayProducts = (products) => {
         .map(
             (prod) => `
             <div class="product-card" onclick="window.location.href='/product/?id=${prod.articles[0].code}'">
-                <img src="${prod.articles[0].logoPicture[0].baseUrl}" alt="${prod.name}">
+                <img src="${prod.images[0].url}" alt="${prod.name}">
                 <div class="product-info">
                     <span>${prod.categoryName}</span>
                     <div class="card-text">
