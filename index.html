@@ -89,15 +89,15 @@
                     <div class="landing-buttons">
                         <button
                             class="landing-button"
-                            id="leftButton"
-                            onclick="moveLeft()"
+                            id="leftButtonLanding"
+                            onclick="moveLeftLanding()"
                         >
                             ❮
                         </button>
                         <button
                             class="landing-button"
-                            id="rightButton"
-                            onclick="moveRight()"
+                            id="rightButtonLanding"
+                            onclick="moveRightLanding()"
                         >
                             ❯
                         </button>
@@ -105,7 +105,7 @@
                     <div class="landing-slider">
                         <div
                             class="landing-image-container"
-                            id="imageContainer"
+                            id="imageContainerLanding"
                         >
                             <img
                                 src="./assets/images/landing-1.png"
@@ -125,6 +125,48 @@
                             />
                         </div>
                     </div>
+                </div>
+            </div>
+        </section>
+        <section class="new-week" id="New">
+            <div
+                class="section-header"
+                style="
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: end;
+                "
+            >
+                <div style="display: flex; align-items: center">
+                    <h1>NEW <br />THIS WEEK</h1>
+                    (<span style="color: blue">35</span>)
+                </div>
+                <a href="./products/?type=T-shirt" style="color: #1111117c"
+                    >See All</a
+                >
+            </div>
+            <div class="image-slider-container">
+                <div class="landing-buttons">
+                    <button
+                        class="landing-button"
+                        id="leftButton"
+                        onclick="moveLeft()"
+                    >
+                        ❮
+                    </button>
+                    <button
+                        class="landing-button"
+                        id="rightButton"
+                        onclick="moveRight()"
+                    >
+                        ❯
+                    </button>
+                </div>
+                <div class="landing-slider">
+                    <div
+                        class="landing-image-container"
+                        id="T-shirts-container"
+                    ></div>
                 </div>
             </div>
         </section>

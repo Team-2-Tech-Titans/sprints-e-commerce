@@ -38,9 +38,17 @@ html {
 }
 body {
     font-family: "Beatrice Deck Trial Medium";
-    background: url("../images/noisy-background.png");
     background-position: center;
     background-size: contain;
+}
+body::before {
+    content: "";
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    background: url("../images/noisy-background.png");
+    pointer-events: none;
+    z-index: -1;
 }
 img {
     object-fit: cover;
@@ -211,7 +219,7 @@ li.nav-item:hover::before {
 /* Nav End*/
 
 /* Home */
-.home-landing {
+section {
     padding: 60px;
 }
 .home-landing li {
@@ -337,7 +345,20 @@ li.nav-item:hover::before {
 .landing-button:disabled:hover {
     background-color: transparent;
 }
-
+.new-week .image-slider-container {
+    width: 100%;
+}
+.new-week .landing-buttons {
+    left: 50%;
+    transform: translate(-50%, 150%);
+}
+.new-week .landing-image-container {
+    margin: 60px 0;
+    width: 300%;
+}
+.new-week .product-card img {
+    height: 350px;
+}
 /* Home End */
 
 /* Products */
