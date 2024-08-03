@@ -17,6 +17,14 @@
     </head>
     <body>
         <header>
+
+            <style>
+                .product-title { font-size: 24px; }
+                .product-price { font-size: 20px; color: #f00; }
+                .color-box { width: 30px; height: 30px; margin-right: 5px; }
+                .size-options button { margin: 2px; }
+                .btn-block { width: 100%; }
+            </style>
             <nav>
                 <span class="burger-icon">
                     <span></span>
@@ -57,83 +65,90 @@
                 /></span>
             </div>
         </header>
-
-        <section>
-            <div class="container mt-5">
-                <div class="row">
-                    <!-- Product Image -->
-                    <div class="col-md-6">
-                        <img
-                            src="../assets/images/one.jfif "
-                            class="img-fluid main-image"
-                            alt="Abstract Print Shirt"
-                        />
-                    </div>
-                    <!-- Product Details -->
-                    <div class="col-md-6">
-                        <h1 class="product-title">ABSTRACT PRINT SHIRT</h1>
-                        <p class="product-price">$99</p>
-                        <p class="text-muted">MRP incl. of all taxes</p>
-                        <p class="product-description">
-                            Relaxed-fit shirt. Camp collar and short sleeves.
-                            Button-up front.
-                        </p>
-                        <h5>Color</h5>
-                        <div class="color-options d-flex mb-3">
-                            <div
-                                class="color-box"
-                                style="background-color: #d3d3d3"
-                            ></div>
-                            <div
-                                class="color-box"
-                                style="background-color: #888"
-                            ></div>
-                            <div
-                                class="color-box"
-                                style="background-color: #000"
-                            ></div>
-                            <div
-                                class="color-box"
-                                style="background-color: #aad4c1"
-                            ></div>
-                            <div
-                                class="color-box"
-                                style="background-color: #fff"
-                            ></div>
-                            <div
-                                class="color-box"
-                                style="background-color: #b5c3ea"
-                            ></div>
-                        </div>
-                        <h5>Size</h5>
-                        <div class="size-options mb-3">
-                            <button class="btn btn-outline-secondary">
-                                XS
-                            </button>
-                            <button class="btn btn-outline-secondary">S</button>
-                            <button class="btn btn-outline-secondary">M</button>
-                            <button class="btn btn-outline-secondary">L</button>
-                            <button class="btn btn-outline-secondary">
-                                XL
-                            </button>
-                            <button class="btn btn-outline-secondary">
-                                2X
-                            </button>
-                        </div>
-                        <div class="extra-options mb-3">
-                            <a href="#" class="text-decoration-none"
-                                >FIND YOUR SIZE</a
-                            >
-                            |
-                            <a href="#" class="text-decoration-none"
-                                >MEASUREMENT GUIDE</a
-                            >
-                        </div>
-                        <button class="btn btn-dark btn-block">ADD</button>
-                    </div>
-                </div>
+        <body>
+            <div id="productDetails" class="container">
             </div>
-        </section>
+        
+            <script>
+                const urlParams = new URLSearchParams(window.location.search);
+                const productId = urlParams.get('id');
+                const productDetails = document.getElementById("productDetails");
+        
+                const url = `https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/detail?lang=en&country=us&productcode=${productId}`;
+                const options = {
+                    method: 'GET',
+                    headers: {
+                        'x-rapidapi-key': '36203c0954msh58a9775e198481dp1be859jsnece5e3a9d7c1',
+                        'x-rapidapi-host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
+                    }
+                };
+        
+                const displayData = async () => {
+                    try {
+                        const response = await fetch(url, options);
+                        const data = await response.json();
+                        const product = data.product.articlesList[0]; 
+        
+                        if (!product) {
+                            productDetails.innerHTML = '<p>Product not found.</p>';
+                            return;
+                        }
+        
+                        const color = product.color || {};
+                        const price = product.redPrice ? product.redPrice.price : product.price;
+                        const currency = product.redPrice ? product.redPrice.currency : 'USD';
+                        const productUrl = product.productUrl || '#';
+                       
+                        
+        
+                        productDetails.innerHTML = `
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img
+                                        src="${product.productUrl}"
+                                        class="img-fluid main-image"
+                                        // alt="${product.name}"
+                                    />
+                                </div>
+                                <div class="col-md-6">
+                                    <h1 class="product-title">${product.name}</h1>
+                                    <p class="product-price">${currency} ${price.toFixed(2)}</p>
+                                    <p class="text-muted">MRP incl. of all taxes</p>
+                                    <p>${product.description}</p>
+                                    <h5>Color</h5>
+                                    <div class="color-options d-flex mb-3">
+                                        <div class="color-box" style="background-color: ${color.rgbColor}"></div>
+                                    </div>
+                                    <h5>Size</h5>
+                                    <div class="size-options mb-3">
+                                        <!-- Example sizes; adjust based on available sizes if needed -->
+                                        <button class="btn btn-outline-secondary">XS</button>
+                                        <button class="btn btn-outline-secondary">S</button>
+                                        <button class="btn btn-outline-secondary">M</button>
+                                        <button class="btn btn-outline-secondary">L</button>
+                                        <button class="btn btn-outline-secondary">XL</button>
+                                        <button class="btn btn-outline-secondary">2X</button>
+                                    </div>
+                                    <div class="extra-options mb-3">
+                                        <a href="#" class="text-decoration-none">FIND YOUR SIZE</a> |
+                                        <a href="#" class="text-decoration-none">MEASUREMENT GUIDE</a>
+                                    </div>
+                                    <button class="btn btn-dark btn-block">ADD</button>
+                                </div>
+                            </div>
+                        `;
+                    } catch (error) {
+                        console.error('Error fetching product data:', error);
+                        productDetails.innerHTML = '<p>Error loading product details.</p>';
+                    }
+                };
+        
+                displayData();
+            </script>
+        </body>
+        </html>
+        
+
     </body>
     <script src="script.js"></script>
     <script src="../assets/scripts/main.js"></script>
