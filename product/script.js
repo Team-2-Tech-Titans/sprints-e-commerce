@@ -1,7 +1,6 @@
 const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id')
-
-console.log(productId);
+const productId = urlParams.get('id');
+const productDetails = document.getElementById("productDetails");
 
 const url = `https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/detail?lang=en&country=us&productcode=${productId}`;
 const options = {
@@ -16,9 +15,18 @@ const displayData = async () => {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        console.log(data.product);
+
+        // Extract the first article from the list
+        const product = data.product;
+        if (!product || !product.articlesList || product.articlesList.length === 0) {
+            productDetails.innerHTML = '<p>Product not found.</p>';
+            return;
+        }
+
     } catch (error) {
-        console.error(error);
+        console.error('Error fetching product data:', error);
+        productDetails.innerHTML = '<p>Error loading product details.</p>';
     }
-}
+};
+
 displayData();
