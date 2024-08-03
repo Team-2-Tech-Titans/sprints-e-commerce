@@ -783,6 +783,10 @@ h1 {
 .product-add-btn:hover {
     background-color: #00000054;
 }
+.product-add-btn.added-btn {
+    background-color: green;
+    color: #eee;
+}
 .product-big-image {
     width: 80%;
     height: 100%;

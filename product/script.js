@@ -17,7 +17,7 @@ const displayData = async () => {
         const data = await response.json();
         globData = data
         const product = data.product.articlesList[0];
-        // console.log(data);
+        console.log(data);
         if (!product) {
             productDetails.innerHTML = "<p>Product not found.</p>";
             return;
@@ -67,7 +67,7 @@ const displayData = async () => {
                                         <a href="#" class="product-links">FIND YOUR SIZE</a> |
                                         <a href="#" class="product-links">MEASUREMENT GUIDE</a>
                                     </div>
-                                    <button class="product-add-btn">ADD</button>
+                                    <button class="product-add-btn" type="button" onclick="handleAddItem()">ADD</button>
                                 </div>
                         `;
     } catch (error) {
@@ -94,4 +94,41 @@ const changeBigImage = (e) => {
     e.target.classList.add("active");
     document.querySelector(".product-big-image").src = e.target.src;
 };
+
+let cartContent = JSON.parse(localStorage.getItem("cart")) || [];
+const handleAddItem = () => {
+    let productIdIndex;
+    document.querySelectorAll('.colors-container input[type="radio"]').forEach((e, i) => {
+        if (e.checked) {
+            productIdIndex = i;
+        }
+    })
+    const cartItem = cartContent.find((item) => item.id === globData.product.articlesList[productIdIndex].code);
+    if (cartItem) {
+        cartItem.quantity++;
+    } else {
+        const product = {
+            id: globData.product.articlesList[productIdIndex].code,
+            name: globData.product.name,
+            price: globData.product.redPrice ? globData.product.redPrice.price : globData.product.price,
+            image: document.querySelector(".product-big-image").src,
+            color: document.querySelector('.colors-container input[type="radio"]:checked').value,
+            size: document.querySelector('.sizes-container input[type="radio"]:checked').value,
+            quantity: 1,
+        };
+        cartContent.push(product);
+    }
+    localStorage.setItem("cart", JSON.stringify(cartContent));
+    document.getElementById('cart-count').style.display = 'flex';
+    document.getElementById('cart-count').innerText = cartContent.length;
+    const addBtn = document.querySelector('.product-add-btn');
+    addBtn.innerText = 'Product Added +'
+    addBtn.classList.add('added-btn')
+    addBtn.disabled = true
+    setTimeout(() => {
+        addBtn.innerText = 'ADD'
+        addBtn.classList.remove('added-btn')
+        addBtn.disabled = false
+    }, 3000);
+}
 displayData();
