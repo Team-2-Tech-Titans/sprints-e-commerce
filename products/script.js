@@ -7,7 +7,7 @@ const url = `${baseUrl}?country=us&lang=en&currentpage=${pageNum}&pagesize=30${P
 const options = {
     method: "GET",
     headers: {
-        "x-rapidapi-key": "4874a52925mshaa774d5f2dd1872p1b7d34jsn381ef1598205",
+        "x-rapidapi-key": "2fb3481aa7mshd89f4309f58d8b2p14a025jsn77188e6519bb",
         "x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
     },
 };
