@@ -1,32 +1,97 @@
 const urlParams = new URLSearchParams(window.location.search);
-const productId = urlParams.get('id');
+const productId = urlParams.get("id");
 const productDetails = document.getElementById("productDetails");
 
 const url = `https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/detail?lang=en&country=us&productcode=${productId}`;
 const options = {
-    method: 'GET',
+    method: "GET",
     headers: {
-        'x-rapidapi-key': '2fb3481aa7mshd89f4309f58d8b2p14a025jsn77188e6519bb',
-        'x-rapidapi-host': 'apidojo-hm-hennes-mauritz-v1.p.rapidapi.com'
-    }
+        "x-rapidapi-key": "2fb3481aa7mshd89f4309f58d8b2p14a025jsn77188e6519bb",
+        "x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
+    },
 };
-
+let globData;
 const displayData = async () => {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-
-        // Extract the first article from the list
-        const product = data.product;
-        if (!product || !product.articlesList || product.articlesList.length === 0) {
-            productDetails.innerHTML = '<p>Product not found.</p>';
+        globData = data
+        const product = data.product.articlesList[0];
+        // console.log(data);
+        if (!product) {
+            productDetails.innerHTML = "<p>Product not found.</p>";
             return;
         }
-
+        const price = product.redPrice ? product.redPrice.price : product.price;
+        const oldPrice = product.whitePrice ? product.whitePrice.price : null;
+        productDetails.innerHTML = `
+                                <div class="product-images">
+                                    <img
+                                        src="${product.fabricSwatchThumbnails[0].baseUrl}"
+                                        class="product-big-image" alt="${product.name}"
+                                    />
+                                    <ul>
+                                    ${product.galleryDetails
+                .map((e, index) => {
+                    if (index > 4) {
+                        return;
+                    }
+                    if (index === 0) {
+                        return `<li><img onclick="changeBigImage(event)" src="${e.baseUrl}" alt="Product Small Image" width="100" height="100" class="product-small-image active"/></li>`;
+                    } else {
+                        return `<li><img onclick="changeBigImage(event)" src="${e.baseUrl}" alt="Product Small Image" width="100" height="100" class="product-small-image" /></li>`;
+                    }
+                }).join("")}
+                                    </ul>
+                                </div>
+                                <div class="product-details">
+                                    <h1>${product.name}</h1>
+                                    <div class="price-container">
+                                        <div>
+                                            <span class="product-price">${price}$</span>
+                                            ${oldPrice ? `<span class="product-old-price">${oldPrice}$</span>` : ''}
+                                        </div>
+                                        ${product.percentageDiscount ? `<span class="discount">${product.percentageDiscount}</span>` : ''}
+                                    </div>
+                                    <p class="product-sub-title">MRP incl. of all taxes</p>
+                                    <p class="product-description">${product.description}</p>
+                                    <h5>Color</h5>
+                                    <div class="colors-container">
+                                        ${data.product.articlesList.map((e, index) => { if (index > 6) { return } return `<input onchange="changeColorHandle(${index})" type='radio' name='color' id='color-${index}' value='${e.color.rgbColor}' class="colors-radio" ${index === 0 ? 'checked' : ''}><label style="background-color:${e.color.rgbColor}" for="color-${index}"></label>` }).join('')}
+                                    </div>
+                                    <h5>Size</h5>
+                                    <div class="sizes-container">
+                                        ${product.variantsList.map((e, index) => { return `<input type='radio' name='size' id='${e.size.name}' value='${e.size.name}' class="sizes-radio" ${index === 0 ? 'checked' : ''}><label for="${e.size.name}">${e.size.name}</label>` }).join('')}
+                                    </div>
+                                    <div class="">  
+                                        <a href="#" class="product-links">FIND YOUR SIZE</a> |
+                                        <a href="#" class="product-links">MEASUREMENT GUIDE</a>
+                                    </div>
+                                    <button class="product-add-btn">ADD</button>
+                                </div>
+                        `;
     } catch (error) {
-        console.error('Error fetching product data:', error);
-        productDetails.innerHTML = '<p>Error loading product details.</p>';
+        console.error("Error fetching product data:", error);
+        productDetails.innerHTML = "<p>Error loading product details.</p>";
     }
 };
-
+const changeColorHandle = (index) => {
+    const galary = globData.product.articlesList[index].galleryDetails
+    document.querySelectorAll(".product-small-image").forEach((e, i) => {
+        if (i > galary.length - 1) {
+            e.style.display = 'none'
+        } else {
+            e.style.display = 'block'
+            e.src = galary[i].baseUrl
+        }
+    });
+    document.querySelector(".product-big-image").src = galary[0].baseUrl;
+}
+const changeBigImage = (e) => {
+    document.querySelectorAll(".product-small-image").forEach((e) => {
+        e.classList.remove("active");
+    });
+    e.target.classList.add("active");
+    document.querySelector(".product-big-image").src = e.target.src;
+};
 displayData();
