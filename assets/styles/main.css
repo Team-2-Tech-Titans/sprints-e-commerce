@@ -3,8 +3,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Regular"),
-        url("/webfonts/BeatriceDeckTRIAL-Regular-BF64829e8e41476.woff")
-            format("woff");
+        url("/webfonts/BeatriceDeckTRIAL-Regular-BF64829e8e41476.woff") format("woff");
 }
 
 @font-face {
@@ -12,8 +11,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Medium"),
-        url("/webfonts/BeatriceDeckTRIAL-Medium-BF64829e8e8d71a.woff")
-            format("woff");
+        url("/webfonts/BeatriceDeckTRIAL-Medium-BF64829e8e8d71a.woff") format("woff");
 }
 
 @font-face {
@@ -21,8 +19,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Bold"),
-        url("/webfonts/BeatriceDeckTRIAL-Bold-BF64829e8e9ca08.woff")
-            format("woff");
+        url("/webfonts/BeatriceDeckTRIAL-Bold-BF64829e8e9ca08.woff") format("woff");
 }
 
 * {
@@ -36,18 +33,22 @@
 html {
     scroll-behavior: smooth;
 }
+
 body {
     font-family: "Beatrice Deck Trial Medium";
     background: url("../images/noisy-background.png");
     background-position: center;
     background-size: contain;
 }
+
 img {
     object-fit: cover;
 }
+
 a {
     text-decoration: none;
 }
+
 /* Start Components */
 .container {
     width: 100%;
@@ -56,6 +57,7 @@ a {
     margin-left: auto;
     margin-right: auto;
 }
+
 .loader {
     position: absolute;
     top: 50%;
@@ -67,14 +69,17 @@ a {
     border-radius: 50%;
     border-top-color: transparent;
 }
+
 @keyframes loader {
     0% {
         rotate: 0deg;
     }
+
     100% {
         rotate: 360deg;
     }
 }
+
 /* Nav */
 header {
     display: flex;
@@ -82,10 +87,12 @@ header {
     width: 100%;
     justify-content: space-between;
 }
+
 nav {
     display: flex;
     gap: 15px;
 }
+
 .burger-icon {
     width: 30px;
     display: flex;
@@ -94,24 +101,30 @@ nav {
     justify-content: center;
     cursor: pointer;
 }
+
 .burger-icon span {
     display: inline-flex;
     height: 2px;
     background-color: #111;
     transition: all 0.3s;
 }
+
 .burger-icon span:nth-child(1) {
     width: 100%;
 }
+
 .burger-icon span:nth-child(2) {
     width: 75%;
 }
+
 .burger-icon span:nth-child(3) {
     width: 50%;
 }
+
 .burger-icon:hover span {
     width: 100%;
 }
+
 ul.nav-list {
     list-style: none;
     display: flex;
@@ -119,6 +132,7 @@ ul.nav-list {
     gap: 30px;
     margin-left: 30px;
 }
+
 li.nav-item {
     font-size: 1.5em;
     position: relative;
@@ -126,11 +140,13 @@ li.nav-item {
     padding: 7px;
     cursor: pointer;
 }
+
 li.nav-item a {
     color: #111;
     z-index: 5;
     position: relative;
 }
+
 li.nav-item::before {
     content: "";
     position: absolute;
@@ -147,25 +163,31 @@ li.nav-item::before {
     -webkit-user-select: none;
     -moz-user-select: none;
 }
+
 li.nav-item:hover::before {
     transform: translateY(-0%);
 }
+
 .header-logo {
     transition: all 0.3s;
 }
+
 .header-logo:hover {
     mix-blend-mode: difference;
     scale: 1.2;
 }
+
 .header-btns {
     display: flex;
     align-items: center;
     gap: 50px;
 }
+
 .cart {
     display: flex;
     flex-direction: row;
 }
+
 .toggle-theme,
 .cart-text,
 .cart-icon,
@@ -183,20 +205,24 @@ li.nav-item:hover::before {
     cursor: pointer;
     transition: all 0.3s;
 }
+
 .toggle-theme:hover,
 .cart:hover .cart-icon,
 .cart:hover .cart-text,
 .profile:hover {
     background-color: #4b4b4b;
 }
+
 .cart-text {
     padding: 25px 50px;
     border-radius: 25px;
 }
+
 .cart-icon {
     transform: translateX(-5px);
     position: relative;
 }
+
 .cart-count {
     position: absolute;
     background-color: red;
@@ -206,6 +232,7 @@ li.nav-item:hover::before {
     top: 0;
     right: 0;
 }
+
 /* Nav End*/
 
 /* Home */
@@ -236,12 +263,14 @@ li.nav-item:hover::before {
 .filters h4 {
     margin: 0 0 10px 0;
 }
+
 .filter-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     cursor: pointer;
 }
+
 .filter-section {
     margin-bottom: 20px;
     padding-bottom: 15px;
@@ -255,6 +284,7 @@ li.nav-item:hover::before {
     height: 0;
     transition: all 0.3s ease;
 }
+
 .size-options {
     display: flex;
     flex-direction: column;
@@ -271,6 +301,7 @@ li.nav-item:hover::before {
     cursor: pointer;
     border: 1px solid #a3a3a3;
 }
+
 .filter-options label {
     display: block;
     margin: 5px 0;
@@ -359,6 +390,7 @@ h1 {
     cursor: pointer;
     transition: all 0.3s;
 }
+
 .product-card:hover {
     scale: 1.05;
 }
@@ -380,16 +412,19 @@ h1 {
     align-items: center;
     justify-content: space-between;
 }
+
 .product-info span {
     display: inline-flex;
     color: #888;
 }
+
 .prod-card-color {
     width: 15px;
     height: 15px;
     border: 1px solid #888;
     margin-left: 10px;
 }
+
 .product-info h4 {
     margin: 10px 0;
 }
@@ -398,11 +433,13 @@ h1 {
     color: #333;
     font-weight: bold;
 }
+
 .pagination {
     margin: auto;
     margin-top: 70px;
     text-align: center;
 }
+
 .pagination span {
     display: inline-flex;
     justify-content: center;
@@ -414,15 +451,18 @@ h1 {
     width: 50px;
     transition: all 0.3s;
 }
+
 .pagination span:nth-child(1):hover,
 .pagination span:nth-child(3):hover {
     background-color: #ccc;
 }
+
 .pagination span:nth-child(2) {
     border: none;
     cursor: default;
     font-size: 1.5em;
 }
+
 /* Products End*/
 
 /* Product */
@@ -479,9 +519,323 @@ h1 {
     color: #333;
     font-size: 0.9rem;
 }
+
 /* Product End */
 
 /* Cart */
+.shoppingCartSection {
+    margin-top: 5rem;
+    margin-left: 2rem;
+    width: 60%;
+}
+
+button,
+select {
+    border: none;
+}
+
+.shoppingCartTitles {
+    margin: 20px;
+    position: relative;
+}
+
+.shoppingCartTitles button {
+    margin: 15px;
+    background-color: transparent;
+}
+.titleHover:hover{
+    font-family: "Beatrice Deck Trial Bold";
+
+}
+.shoppingCartTitles i {
+    margin: 10px;
+    cursor: pointer;
+    padding: 10px;
+    background-color: #FFFFFF;
+}
+
+.shoppingCartTitles::after {
+    content: '';
+    position: absolute;
+    background-color: #C9C9C9;
+    top: 100%;
+    left: 10px;
+    width: 100%;
+    height: 2px;
+}
+.favProduct{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 40px;
+    height: 40px;
+    transition: color 1s 1s;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.favProduct button{
+    background-color: white;
+}
+.favProduct:hover i{
+    color: red;
+}
+.product-img{
+    position: relative;
+}
+
+/* shoppingCartItems */
+.shoppingCartItems {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-left: 2rem;
+}
+
+.product-info {
+    width: 70%;
+    background-color: transparent;
+}
+
+.product-name {
+    margin-top: 10px;
+}
+
+.product-name h4,
+span,
+p {
+    font-family: "Beatrice Deck Trial Medium";
+    font-weight: 500;
+}
+
+.product-name h4,
+span {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20.8px;
+    color: #000000;
+}
+
+.product-name p {
+    font-size: 12px;
+    line-height: 17.83px;
+    color: rgb(0, 0, 0, 0.6);
+}
+.product-img img{
+    width: 100%;
+}
+.product-img:hover img, .product-name:hover{
+    transform: scale(1.05, 1.05);
+}
+.test {
+    display: flex;
+    justify-content: space-between;
+}
+
+.product-options {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 30%;
+    height: 80%;
+}
+.product-options button:first-child{
+    color: #8A8A8A;
+}
+.product-options select {
+    width: 80%;
+}
+
+.shoppingCartItem1,
+.shoppingCartItem2,
+.shoppingCartItem3,
+.shoppingCartItem4 {
+    position: relative;
+}
+
+.prod-card-color {
+    width: 25px;
+    height: 25px;
+    border: 1px solid #888;
+    margin-left: 10px;
+}
+
+.btn-transparent {
+    background-color: transparent;
+}
+
+.shoppingCartItem1 {
+    position: relative;
+}
+
+.shoppingCartItem1::after {
+    content: '';
+    position: absolute;
+    background-color: #C9C9C9;
+    top: 102%;
+    left: 0;
+    width: 210%;
+    height: 2px;
+}
+.btn-group-increment {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 50px; 
+}
+.btnLight {
+    background-color: transparent;
+    border: 1px solid #ced4da;
+    padding: 10px 0; 
+    cursor: pointer;
+    text-align: center;
+    font-size: 1rem;
+    margin: -1px 0 0 0; 
+    border-radius: 0; 
+    width: 70%; 
+}
+
+.btnLight:first-child {
+    margin-top: 0;
+    border-radius: 4px 4px 0 0; 
+}
+
+.btnLight:last-child {
+    margin-bottom: 0;
+    border-radius: 0 0 4px 4px; 
+}
+.btnLight:hover, .custom-select:hover{
+    background-color: rgb(211, 212, 213);
+}
+.refreshIcon:hover, .fa-xmark:hover, .prodColor:hover{
+    transform: scale(1.3, 1.3);
+    color: black;
+}
+.refreshIcon{
+    color: #8A8A8A;
+}
+.custom-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: transparent; 
+    border: 1px solid #ced4da; 
+    padding: 10px; 
+    font-size: 1rem; 
+    color: #495057;
+    outline: none; 
+    position: relative;
+    transform: rotate(270deg);
+    margin: 2rem 0;
+}
+
+/* Order Summary */
+.orderSummary {
+    position: fixed;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-30%);
+    width: 306px;
+    border: 1px solid #D9D9D9;
+    padding: 1.5rem;
+
+}
+.summary-container{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.orderSummary h3:nth-child(1) {
+    line-height: 20.8px;
+    font-size: 14px;
+    font-weight: 500;
+    margin: 1.5rem 0;
+}
+
+.orderSummary h4 {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 17.83px;
+    display: inline-block;
+}
+.subTotal, .shippingTaxes{
+    display: flex;
+    justify-content: space-between;
+}
+.totalCost{
+    display: flex;
+    justify-content: space-between;
+}
+.totalCost{
+    font-weight: 500;
+}
+.totalCost h4{
+    font-size: 16px;
+    color: #1E1E1E;
+}
+.totalCost span{
+    color: rgb(0, 0, 0, 0.55);
+    font-size: 12px;
+}
+.chechBox{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 2rem;
+}
+.chechBox span{
+    font-size: 11px;
+    font-weight: 250px;
+    color: rgb(0, 0, 0, 0.55);
+}
+
+.orderSummary button{
+    background-color: #D9D9D9;
+    margin: auto;
+    width: 229px;
+    height: 40px;
+}
+.orderSummary button:hover{
+    transform: scale(1.05, 1.05);
+}
+ /* Media Query */
+@media (max-width: 1070px){
+    .orderSummary{
+        position: sticky;
+        transform: translateY(0);
+        margin: 2rem auto;
+    }
+    .shoppingCartSection{
+        margin: auto;
+    }
+}
+@media (max-width: 970px){
+    .shoppingCartItems {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 2rem;
+}
+.shoppingCartItem1::after {
+    content: '';
+    height: 0px;
+}
+.shoppingCartSection{
+    margin: auto;
+}
+}
+@media (max-width: 640px){
+    .shoppingCartTitles{
+        width: 100%;
+    }
+    .shoppingCartSection{
+        margin: auto;
+    }
+}
 /* Cart End */
 
 /* Checkout */
