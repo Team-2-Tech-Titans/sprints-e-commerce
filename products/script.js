@@ -1,3 +1,8 @@
+let allProducts = [];
+let filteredProducts = [];
+let selectedCategory = localStorage.getItem('selectedCategory') || '';
+let selectedSortOrder = localStorage.getItem('selectedSortOrder') || 'default';
+
 const urlParams = new URLSearchParams(window.location.search);
 const pageNum = urlParams.get("page") || 0;
 const ProductsType = urlParams.get("type");
@@ -7,7 +12,7 @@ const url = `${baseUrl}?country=us&lang=en&currentpage=${pageNum}&pagesize=30${P
 const options = {
     method: "GET",
     headers: {
-        "x-rapidapi-key": "4874a52925mshaa774d5f2dd1872p1b7d34jsn381ef1598205",
+        "x-rapidapi-key": "36203c0954msh58a9775e198481dp1be859jsnece5e3a9d7c1",
         "x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
     },
 };
@@ -16,7 +21,8 @@ const getProducts = async () => {
     try {
         const response = await fetch(url, options);
         const data = await response.json();
-        displayProducts(data.results);
+        allProducts = data.results;
+        applyFiltersAndSorting();
         displayFilters(data.results);
         displayPagination(data.pagination);
     } catch (error) {
@@ -24,23 +30,41 @@ const getProducts = async () => {
     }
 };
 
+const applyFiltersAndSorting = () => {
+    filteredProducts = [...allProducts];
+
+    // Apply category filter
+    if (selectedCategory) {
+        filteredProducts = filteredProducts.filter(prod => prod.categoryName === selectedCategory);
+    }
+
+    // Apply sorting
+    if (selectedSortOrder === "price-asc") {
+        filteredProducts.sort((a, b) => parseFloat(a.price.value) - parseFloat(b.price.value));
+    } else if (selectedSortOrder === "price-desc") {
+        filteredProducts.sort((a, b) => parseFloat(b.price.value) - parseFloat(a.price.value));
+    }
+
+    displayProducts(filteredProducts);
+};
+
 const displayProducts = (products) => {
     const productListing = document.getElementById("product-listing");
     productListing.innerHTML = products.map(prod => `
-                <div class="product-card" onclick="window.location.href='/product/?id=${prod.articles[0].code}'">
-                    <img src="${prod.images[0].url}" alt="${prod.name}">
-                    <div class="product-info">
-                        <span>Category: ${prod.categoryName} ${prod.rgbColors
-            ? `<span class="prod-card-color" style="background-color:${prod.rgbColors[0]}"></span>${prod.rgbColors.length > 1 ? `+${prod.rgbColors.length}` : ""}`
-            : ""
-        }</span>
-                        <div class="card-text">
-                            <h4>${prod.name}</h4>
-                            <p>${prod.price.formattedValue}</p>
-                        </div>
-                    </div>
+        <div class="product-card" onclick="window.location.href='/product/?id=${prod.articles[0].code}'">
+            <img src="${prod.images[0].url}" alt="${prod.name}">
+            <div class="product-info">
+                <span>Category: ${prod.categoryName} ${prod.rgbColors
+        ? `<span class="prod-card-color" style="background-color:${prod.rgbColors[0]}"></span>${prod.rgbColors.length > 1 ? `+${prod.rgbColors.length}` : ""}`
+        : ""
+    }</span>
+                <div class="card-text">
+                    <h4>${prod.name}</h4>
+                    <p>${prod.price.formattedValue}</p>
                 </div>
-            `).join("");
+            </div>
+        </div>
+    `).join("");
 };
 
 const displayPagination = (pagination) => {
@@ -48,10 +72,10 @@ const displayPagination = (pagination) => {
     let pageNumber = pagination.currentPage + 1;
     let lastPage = pagination.numberOfPages;
     paginationContainer.innerHTML = `
-                <span onclick="changePage(${pagination.currentPage - 1}, '${ProductsType || ''}')" ${pageNumber === 1 ? "style='display:none'" : ""}><i class="fa-solid fa-angle-left"></i></span>
-                <span>${pageNumber}</span>
-                <span onclick="changePage(${pagination.currentPage + 1}, '${ProductsType || ''}')" ${pageNumber === lastPage ? "style='display:none'" : ""}><i class="fa-solid fa-angle-right"></i></span>
-            `;
+        <span onclick="changePage(${pagination.currentPage - 1}, '${ProductsType || ''}')" ${pageNumber === 1 ? "style='display:none'" : ""}><i class="fa-solid fa-angle-left"></i></span>
+        <span>${pageNumber}</span>
+        <span onclick="changePage(${pagination.currentPage + 1}, '${ProductsType || ''}')" ${pageNumber === lastPage ? "style='display:none'" : ""}><i class="fa-solid fa-angle-right"></i></span>
+    `;
 };
 
 const changePage = (pageNumber, type) => {
@@ -77,15 +101,35 @@ const displayFilters = (products) => {
 
     const categoriesFilter = document.querySelector(".filter-section.category");
     categoriesFilter.innerHTML = `
-                <h4 class="filter-header" onclick="collapseFilter(event)">Category<span><i class="fa-solid fa-angle-right"></i></span></h4>
-                <div class="filter-options">
-                    ${categories.map(category => `
-                        <label>
-                            <input type="checkbox"/> ${category.name} (<span style="color:blue;">${category.count}</span>)
-                        </label>
-                    `).join("")}
-                </div>
-            `;
+        <h3 class="filter-header" onclick="collapseFilter(event)">Category<span><i class="fa-solid fa-angle-right"></i></span></h3>
+        <div class="filter-options">
+            ${categories.map(category => `
+                <label>
+                    <input type="checkbox" value="${category.name}" onclick="filterByCategory(event)" ${category.name === selectedCategory ? 'checked' : ''}/> ${category.name} (<span style="color:black;">${category.count}</span>)
+                </label>
+            `).join("")}
+        </div>
+    `;
+
+    document.getElementById('sort-select').value = selectedSortOrder;
+};
+
+const filterByCategory = (e) => {
+    const category = e.target.value;
+    if (e.target.checked) {
+        selectedCategory = category;
+    } else {
+        selectedCategory = '';
+    }
+    localStorage.setItem('selectedCategory', selectedCategory);
+    applyFiltersAndSorting();
+};
+
+const sortProducts = () => {
+    const sortSelect = document.getElementById("sort-select");
+    selectedSortOrder = sortSelect.value;
+    localStorage.setItem('selectedSortOrder', selectedSortOrder);
+    applyFiltersAndSorting();
 };
 
 const collapseFilter = (e) => {
@@ -101,5 +145,16 @@ const collapseFilter = (e) => {
         content.style.height = content.scrollHeight + "px";
     }
 };
+
+document.getElementById("toggle-filters").addEventListener("click", function() {
+    const sidebar = document.querySelector(".sidebar");
+    if (sidebar.style.left === "-100%") {
+        sidebar.style.left = "0";
+    } else {
+        sidebar.style.left = "-100%";
+    }
+});
+
+document.getElementById('sort-select').addEventListener('change', sortProducts);
 
 document.addEventListener('DOMContentLoaded', getProducts);
