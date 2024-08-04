@@ -157,7 +157,12 @@ body.dark-mode .product-sub-title,
 body.dark-mode .product-details h5,
 body.dark-mode .totalCost h4,
 body.dark-mode .container form .row .col .inputbox input,
-body.dark-mode .container form .row .col .inputbox select{
+body.dark-mode .container form .row .col .inputbox select,
+body.dark-mode .product-name p,
+body.dark-mode .product-name h4,
+body.dark-mode .btnLight,
+body.dark-mode .shoppingCartTitles button,
+body.dark-mode .chechBox span{
     color: #e0e0e0;
 }
 body.dark-mode .sizes-container input[type="radio"]:checked+label,body.dark-mode .colors-container input[type="radio"]:checked+label{
@@ -179,4 +184,96 @@ body.dark-mode .container form .row .col .inputbox select option:disabled{
 body.dark-mode .container form .row .col .inputbox select option{
     color: #eee;
     background-color: #222;
+}
+body.dark-mode .approach {
+    text-align: center;
+}
+
+body.dark-mode .approach-text {
+    width: 60%;
+    margin: auto;
+    margin-bottom: 40px;
+}
+
+body.dark-mode .approach-text h1 {
+    text-transform: uppercase;
+}
+
+body.dark-mode .approach-text p {
+    opacity: 0.6;
+}
+
+body.dark-mode .approach-images {
+    display: flex;
+    gap: 20px;
+    margin-top: 150px;
+}
+
+body.dark-mode .approach-images img {
+    width: calc(25% - 15px);
+    border: 1px solid #e0e0e0;
+}
+
+body.dark-mode .approach-images img:nth-child(1),
+body.dark-mode .approach-images img:nth-child(3) {
+    transform: translateY(-50px);
+}
+
+body.dark-mode footer {
+    background-color: #333333;
+    padding: 50px 40px;
+    padding-bottom: 10px;
+}
+
+body.dark-mode .footer-body,
+body.dark-mode .footer-text {
+    text-transform: uppercase;
+    color: #e0e0e0; 
+    flex-direction: column;
+    gap: 50px;
+    font-size: 14px;
+}
+
+body.dark-mode .footer-body {
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin-bottom: 40px;
+}
+
+body.dark-mode .footer-body span {
+    opacity: 0.6;
+    display: inline-block;
+    font-size: 12px;
+}
+
+body.dark-mode .footer-body>.footer-text>div>span {
+    margin-bottom: 25px;
+}
+
+body.dark-mode .footer-tech h1 {
+    font-size: 60px;
+    margin: 0;
+}
+
+body.dark-mode .footer-tech h1:nth-of-type(1) {
+    color: #ccc;
+}
+
+body.dark-mode .copyright {
+    text-align: center;
+    font-size: 8px;
+    opacity: 0.5;
+}
+body.dark-mode .shoppingCartTitles i{
+    background: transparent;
+}
+body.dark-mode .orderSummary button{
+    background: #222;
+    border: 1px solid #e0e0e0;
+    color: #e0e0e0;
+}
+body.dark-mode .orderSummary button:hover{
+    background: #e0e0e0;
+    border: 1px solid #222;
+    color: #222;
 }
