@@ -53,9 +53,10 @@
         </header>
         <div class="container checkout-section">
             <h1>CHECKOUT</h1>
+            <h3 class="checkout-nav"><span>SHIPPING</span><span>PAYMENT</span></h3>
             <form action="">
                 <div class="row">
-                    <div class="col">
+                    <div class="col" id="shipping-form">
                         <h3 class="title">Contact Info</h3>
                         <div class="inputbox">
                             <input type="email" placeholder="Email" />
@@ -72,7 +73,7 @@
                                 <input type="text" placeholder="Last Name" />
                             </div>
                         </div>
-                        <div class="inputbox">
+                        <div class="inputbox country-select">
                             <select
                                 id="country-select"
                                 name="country"
@@ -493,43 +494,41 @@
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="col">
-                        <h3 class="title">Payment</h3>
+                    <div class="col" id="payment-form">
                         <div class="inputbox">
-                            <span>Cards Acceppted :</span>
+                            <span>Cards Acceppted</span>
                             <img
                                 src="../assets/images/card-img.png"
                                 alt="cards image"
                             />
                         </div>
                         <div class="inputbox">
-                            <span>Card Name :</span>
+                            <span></span>
                             <input type="text" placeholder="Card Name " />
                         </div>
-                        <div class="inputbox">
-                            <span>Card Number :</span>
+                        <div class="inputbox credit-card" >
                             <input
                                 type="text"
-                                placeholder="1234 1234 1234 1234"
+                                placeholder="**** **** **** ****"
                             />
                         </div>
                         <div class="inputbox">
-                            <span>Expiray Date :</span>
                             <input type="text" placeholder="MM/YY" />
                         </div>
                         <div class="inputbox">
-                            <span>CVV :</span>
-                            <input type="text" placeholder="123" />
+                            <input type="text" placeholder="CVV" />
                         </div>
-                    </div> -->
+                    </div>
                 </div>
                 <div class="form-btn-container">
                     <div class="btn-half">
-                        <div style="width: 100%"></div>
+                        <button type="button" class="confirm-order main-btn payment-btn">
+                            CONFRIM
+                        </button>
                     </div>
                     <div class="btn-half">
-                        <button type="button" class="main-btn payment-btn">
-                            Payment
+                        <button type="button" class="main-btn payment-btn form-toggeler" onclick="toggleCheckoutForm()">
+                            <span>Payment</span>
                             <img
                                 src="../assets/images/long-arrow.png"
                                 alt="long arrow"
@@ -538,6 +537,9 @@
                     </div>
                 </div>
             </form>
+            <div class="your-order">
+                
+            </div>
         </div>
     </body>
     <script src="script.js"></script>

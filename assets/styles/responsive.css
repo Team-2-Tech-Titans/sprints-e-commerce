@@ -107,3 +107,35 @@
 }
 
 /*End Products*/
+@media (max-width: 1070px) {
+  .orderSummary {
+      position: sticky;
+      transform: translateY(0);
+      margin: 2rem auto;
+  }
+  .shoppingCartSection {
+      margin: auto;
+  }
+}
+@media (max-width: 970px) {
+  .shoppingCartItems {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+  }
+  .shoppingCartItem1::after {
+      content: "";
+      height: 0px;
+  }
+  .shoppingCartSection {
+      margin: auto;
+  }
+}
+@media (max-width: 640px) {
+  .shoppingCartTitles {
+      width: 100%;
+  }
+  .shoppingCartSection {
+      margin: auto;
+  }
+}

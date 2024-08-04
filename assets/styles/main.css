@@ -3,8 +3,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Regular"),
-        url("/webfonts/BeatriceDeckTRIAL-Regular-BF64829e8e41476.woff")
-            format("woff");
+        url("/webfonts/BeatriceDeckTRIAL-Regular-BF64829e8e41476.woff") format("woff");
 }
 
 @font-face {
@@ -12,8 +11,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Medium"),
-        url("/webfonts/BeatriceDeckTRIAL-Medium-BF64829e8e8d71a.woff")
-            format("woff");
+        url("/webfonts/BeatriceDeckTRIAL-Medium-BF64829e8e8d71a.woff") format("woff");
 }
 
 @font-face {
@@ -21,8 +19,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Bold"),
-        url("/webfonts/BeatriceDeckTRIAL-Bold-BF64829e8e9ca08.woff")
-            format("woff");
+        url("/webfonts/BeatriceDeckTRIAL-Bold-BF64829e8e9ca08.woff") format("woff");
 }
 
 * {
@@ -42,6 +39,7 @@ body {
     background-position: center;
     background-size: contain;
 }
+
 body::before {
     content: "";
     width: 100dvw;
@@ -51,6 +49,7 @@ body::before {
     pointer-events: none;
     z-index: -1;
 }
+
 img {
     object-fit: cover;
 }
@@ -58,9 +57,11 @@ img {
 a {
     text-decoration: none;
 }
+
 ul {
     list-style: none;
 }
+
 /* Start Components */
 .container {
     width: 100%;
@@ -87,6 +88,7 @@ ul {
     0% {
         transform: translate(-50%, -50%) rotate(0deg);
     }
+
     100% {
         transform: translate(-50%, -50%) rotate(360deg);
     }
@@ -251,20 +253,25 @@ li.nav-item:hover::before {
 section {
     padding: 60px;
 }
+
 .home-landing li {
     margin-top: 15px;
 }
+
 .home-landing a {
     font-size: 1.5em;
     color: #111;
     font-family: Beatrice Deck Trial Regular;
 }
+
 .home-landing a:hover {
     text-decoration: underline;
 }
+
 .search-container {
     position: relative;
 }
+
 .search-container i {
     position: absolute;
     top: 50%;
@@ -272,6 +279,7 @@ section {
     margin-left: 15px;
     color: #111;
 }
+
 .home-search-bar,
 .main-btn {
     border: none;
@@ -284,6 +292,7 @@ section {
     text-align: right;
     display: flex;
 }
+
 .bottom-landing {
     display: flex;
     width: 100%;
@@ -300,15 +309,18 @@ section {
     flex-direction: column;
     justify-content: space-between;
 }
+
 .section-header h1 {
     font-family: Beatrice Deck Trial Bold;
     font-size: 3em;
     margin: 0;
     margin-top: 25px;
 }
+
 .section-header span {
     color: #11111163;
 }
+
 .main-btn {
     text-align: center;
     width: 60%;
@@ -320,9 +332,11 @@ section {
     transition: all 0.3s;
     font-size: 1.5em;
 }
+
 .main-btn:hover {
     background-color: #00000054;
 }
+
 .landing-slider {
     position: relative;
     overflow: hidden;
@@ -342,7 +356,8 @@ section {
 .landing-image-container {
     display: flex;
     transition: transform 0.5s ease-in-out;
-    width: 200%; /* 4 images * 50% each */
+    width: 200%;
+    /* 4 images * 50% each */
     gap: 50px;
 }
 
@@ -363,6 +378,7 @@ section {
     cursor: pointer;
     transition: all 0.3s;
 }
+
 .landing-button:hover {
     background-color: #00000054;
 }
@@ -372,24 +388,30 @@ section {
     border-color: #11111144;
     cursor: default;
 }
+
 .landing-button:disabled:hover {
     background-color: transparent;
 }
+
 .new-week .image-slider-container {
     width: 100%;
 }
+
 .new-week .landing-buttons {
     left: 50%;
     transform: translate(-50%, 150%);
 }
+
 .new-week .landing-image-container {
     margin: 60px 0;
     width: 300%;
     padding: 50px 0;
 }
+
 .new-week .product-card img {
     height: 350px;
 }
+
 .home-categ-filter {
     margin-top: 60px;
     padding-bottom: 30px;
@@ -397,13 +419,16 @@ section {
     gap: 35px;
     border-bottom: 2px solid #11111163;
 }
+
 .home-categ-filter li {
     cursor: pointer;
     color: #11111163;
 }
+
 .home-categ-filter li.actv-categ {
     color: #111;
 }
+
 #home-collection {
     min-height: 350px;
     position: relative;
@@ -415,12 +440,15 @@ section {
     gap: 50px;
     margin-top: 60px;
 }
+
 #home-collection .product-card {
     width: auto;
 }
+
 #home-collection .product-card img {
     max-height: 450px;
 }
+
 .show-more {
     margin-top: 45px;
     display: flex;
@@ -429,13 +457,16 @@ section {
     justify-content: center;
     cursor: pointer;
 }
+
 .show-more span {
     font-size: 1.2em;
     color: #11111163;
 }
+
 .show-more i {
     color: #111;
 }
+
 /* Home End */
 
 /* Products */
@@ -511,6 +542,7 @@ section {
     padding: 10px;
     cursor: pointer;
 }
+
 .size-options button:hover,
 .filter-options button:hover {
     background-color: #ddd;
@@ -680,11 +712,13 @@ h1 {
     margin-top: 60px;
     margin-bottom: 60px;
 }
+
 .product-images {
     display: flex;
     width: 60%;
     gap: 30px;
 }
+
 .product-details {
     border: 1px solid #11111163;
     padding: 15px 30px;
@@ -693,10 +727,12 @@ h1 {
     flex-direction: column;
     justify-content: space-between;
 }
+
 .product-details h1 {
     font-weight: 400;
     font-size: 1.7em;
 }
+
 .price-container {
     margin: 15px 0;
     font-size: 1.3em;
@@ -704,31 +740,38 @@ h1 {
     justify-content: space-between;
     align-items: center;
 }
+
 .price-container .product-price {
     color: #c9002e;
     margin-right: 5px;
 }
+
 .price-container .product-old-price {
     text-decoration: line-through;
 }
+
 .price-container .discount {
     padding: 10px 15px;
     background-color: #c9002e;
     color: white;
 }
+
 .product-sub-title {
     margin: 15px 0;
     color: #11111163;
 }
+
 .product-description {
     margin-bottom: 25px;
 }
+
 .product-details h5 {
     font-size: 1.5em;
     font-weight: 100;
     font-family: Beatrice Deck Trial Regular;
     color: #11111163;
 }
+
 .sizes-container,
 .colors-container {
     margin-bottom: 20px;
@@ -737,10 +780,12 @@ h1 {
     flex-direction: row;
     gap: 5px;
 }
+
 .sizes-container input[type="radio"],
 .colors-container input[type="radio"] {
     display: none;
 }
+
 .sizes-container label,
 .colors-container label {
     min-width: 30px;
@@ -753,14 +798,17 @@ h1 {
     opacity: 0.4;
     padding: 10px;
 }
-.sizes-container input[type="radio"]:checked + label,
-.colors-container input[type="radio"]:checked + label {
+
+.sizes-container input[type="radio"]:checked+label,
+.colors-container input[type="radio"]:checked+label {
     background-color: #ccc;
     opacity: 1;
 }
+
 .product-links {
     color: #11111163;
 }
+
 .product-add-btn {
     text-align: center;
     padding: 15px 30px;
@@ -773,18 +821,22 @@ h1 {
     width: 100%;
     cursor: pointer;
 }
+
 .product-add-btn:hover {
     background-color: #00000054;
 }
+
 .product-add-btn.added-btn {
     background-color: green;
     color: #eee;
 }
+
 .product-big-image {
     width: 80%;
     height: 100%;
     border: 1px solid #11111163;
 }
+
 .product-images ul {
     display: flex;
     flex-direction: column;
@@ -792,19 +844,23 @@ h1 {
     width: 20%;
     gap: 15px;
 }
+
 .product-images ul li {
     width: 100px;
     height: calc(20% - 12px);
 }
+
 .product-small-image {
     height: 100%;
     opacity: 0.4;
     cursor: pointer;
     border: 1px solid #11111163;
 }
+
 .product-small-image.active {
     opacity: 1;
 }
+
 /* Product End */
 
 /* Cart */
@@ -828,9 +884,11 @@ select {
     margin: 15px;
     background-color: transparent;
 }
+
 .titleHover:hover {
     font-family: "Beatrice Deck Trial Bold";
 }
+
 .shoppingCartTitles i {
     margin: 10px;
     cursor: pointer;
@@ -847,6 +905,7 @@ select {
     width: 100%;
     height: 2px;
 }
+
 .favProduct {
     position: absolute;
     bottom: 0;
@@ -859,12 +918,15 @@ select {
     justify-content: center;
     align-items: center;
 }
+
 .favProduct button {
     background-color: white;
 }
+
 .favProduct:hover i {
     color: red;
 }
+
 .product-img {
     position: relative;
 }
@@ -877,11 +939,13 @@ select {
     gap: 2rem;
     margin-left: 2rem;
 }
+
 .shoppingCartItems h1 a {
     color: blue;
     text-decoration: underline;
     font-size: 0.5em;
 }
+
 .product-info-cart {
     width: 70%;
     background-color: transparent;
@@ -909,9 +973,11 @@ p {
     line-height: 17.83px;
     color: rgb(0, 0, 0, 0.6);
 }
+
 .product-img img {
     width: 100%;
 }
+
 .test {
     display: flex;
     justify-content: space-between;
@@ -928,9 +994,11 @@ p {
     width: 30%;
     height: 80%;
 }
+
 .product-options button:first-child {
     color: #8a8a8a;
 }
+
 .product-options select {
     width: 80%;
 }
@@ -958,12 +1026,14 @@ p {
     width: 110%;
     height: 2px;
 }
+
 .btn-group-increment {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 50px;
 }
+
 .btnLight {
     background-color: transparent;
     border: 1px solid #ced4da;
@@ -985,24 +1055,29 @@ p {
     margin-bottom: 0;
     border-radius: 0 0 4px 4px;
 }
+
 .btnLight:hover,
 .custom-select:hover {
     background-color: rgb(211, 212, 213);
 }
+
 .refreshIcon,
 .fa-xmark {
     transition: all 0.3s;
     cursor: pointer;
     font-size: 1.3em;
 }
+
 .refreshIcon:hover,
 .fa-xmark:hover {
     transform: scale(1.3, 1.3);
     color: black;
 }
+
 .refreshIcon {
     color: #8a8a8a;
 }
+
 .custom-select {
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -1028,11 +1103,13 @@ p {
     border: 1px solid #d9d9d9;
     padding: 1.5rem;
 }
+
 .summary-container {
     display: flex;
     flex-direction: column;
     gap: 20px;
 }
+
 .orderSummary h3:nth-child(1) {
     line-height: 20.8px;
     font-size: 14px;
@@ -1046,31 +1123,38 @@ p {
     line-height: 17.83px;
     display: inline-block;
 }
+
 .subTotal,
 .shippingTaxes {
     display: flex;
     justify-content: space-between;
 }
+
 .totalCost {
     display: flex;
     justify-content: space-between;
 }
+
 .totalCost {
     font-weight: 500;
 }
+
 .totalCost h4 {
     font-size: 16px;
     color: #1e1e1e;
 }
+
 .totalCost span {
     color: rgb(0, 0, 0, 0.55);
     font-size: 12px;
 }
+
 .chechBox {
     display: flex;
     justify-content: space-evenly;
     margin-bottom: 2rem;
 }
+
 .chechBox span {
     font-size: 11px;
     font-weight: 250px;
@@ -1085,41 +1169,9 @@ p {
     transition: all 0.3s;
     cursor: pointer;
 }
+
 .orderSummary button:hover {
     background-color: #11111163;
-}
-/* Media Query */
-@media (max-width: 1070px) {
-    .orderSummary {
-        position: sticky;
-        transform: translateY(0);
-        margin: 2rem auto;
-    }
-    .shoppingCartSection {
-        margin: auto;
-    }
-}
-@media (max-width: 970px) {
-    .shoppingCartItems {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-    .shoppingCartItem1::after {
-        content: "";
-        height: 0px;
-    }
-    .shoppingCartSection {
-        margin: auto;
-    }
-}
-@media (max-width: 640px) {
-    .shoppingCartTitles {
-        width: 100%;
-    }
-    .shoppingCartSection {
-        margin: auto;
-    }
 }
 /* Cart End */
 
@@ -1127,6 +1179,7 @@ p {
 .checkout-section {
     margin-bottom: 60px;
 }
+
 .container form {
     width: 50%;
 }
@@ -1136,6 +1189,17 @@ p {
     color: #000;
     padding-top: 20px;
     text-transform: capitalize;
+}
+.checkout-nav{
+    display: flex;
+    gap:30px;
+    font-weight: 200;
+}
+.checkout-nav span:nth-child(1){
+    opacity: 1;
+}
+.checkout-nav span:nth-child(2){
+    opacity: 0.4;
 }
 
 .container form .row {
@@ -1149,7 +1213,7 @@ p {
 }
 
 .container form .row .col .title {
-    margin-top: 40px;
+    margin-top: 30px;
     margin-bottom: 20px;
     font-size: 20px;
     color: #333;
@@ -1165,6 +1229,10 @@ p {
     display: block;
 }
 
+.country-select {
+    position: relative;
+}
+
 .container form .row .col .inputbox input,
 .container form .row .col .inputbox select {
     width: 100%;
@@ -1173,7 +1241,24 @@ p {
     font-size: 14px;
     text-transform: none;
     background: transparent;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
 }
+
+.country-select::after {
+    content: "\f107";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: #333;
+}
+
 .container form .row .col .inputbox select.default,
 .container form .row .col .inputbox select option:disabled {
     color: #11111187;
@@ -1198,17 +1283,68 @@ p {
     margin-top: 5px;
     filter: drop-shadow(0 0 1px #000);
 }
+.credit-card{
+    position: relative;
+}
+.credit-card::after{
+    content: "\f09d";
+    font-family: "Font Awesome 5 Free";
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    pointer-events: none;
+    font-size: 12px;
+    color: #333;
+}
+
 .form-btn-container {
     display: flex;
     gap: 15px;
 }
+
 .btn-half {
     width: 50%;
 }
+
 .payment-btn {
     width: 100%;
     font-size: 16px;
 }
+.payment-btn.confirm-order{
+    display: none;
+}
+#payment-form{
+    display: none;
+}
+.payment-toggled #payment-form{
+    display: block;
+}
+.payment-toggled #shipping-form{
+    display: none;
+}
+.payment-toggled .form-btn-container{
+    flex-direction: row-reverse;
+}
+.payment-toggled .payment-btn{
+    flex-direction: row-reverse;
+}
+.payment-toggled .payment-btn img{
+    transform: rotateY(180deg);
+}
+.payment-toggled .payment-btn.confirm-order{
+    display: block;
+}
+.payment-toggled .checkout-nav span:nth-child(1){
+    opacity: 0.4;
+}
+.payment-toggled .checkout-nav span:nth-child(2){
+    opacity: 1;
+}
+/* .your-order{
+    
+} */
 /* Checkout End */
 
 /* Footer */
