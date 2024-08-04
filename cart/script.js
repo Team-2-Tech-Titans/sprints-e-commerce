@@ -32,7 +32,7 @@ const draw = (cartItems) => {
                             </div>
                         </div>
                         <div class="product-name">
-                        <p>Cotton T-shirt</p>
+                        <p>${item.category}</p>
                             <div class="test">
                                 <h4>${item.name}</h4>
                                 <span>$ ${item.price}</span>

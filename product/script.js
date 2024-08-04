@@ -110,6 +110,7 @@ const handleAddItem = () => {
         const product = {
             id: globData.product.articlesList[productIdIndex].code,
             name: globData.product.name,
+            category:globData.product.mainCategory.name,
             price: globData.product.redPrice ? globData.product.redPrice.price : globData.product.price,
             image: document.querySelector(".product-big-image").src,
             color: document.querySelector('.colors-container input[type="radio"]:checked').value,

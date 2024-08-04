@@ -1300,7 +1300,7 @@ section.checkout-section{
     right: 20px;
     transform: translateY(-50%);
     pointer-events: none;
-    font-size: 12px;
+    font-size: 16px;
     color: #333;
 }
 
