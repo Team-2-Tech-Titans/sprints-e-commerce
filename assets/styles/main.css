@@ -474,6 +474,12 @@ section.approach{
     margin: auto;
     margin-bottom: 40px;
 }
+.approach-text h1{
+    text-transform: uppercase;
+}
+.approach-text p{
+    opacity: 0.6;
+}
 .approach-images{
     display: flex;
     gap: 20px;
