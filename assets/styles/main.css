@@ -117,7 +117,7 @@ nav {
 
 .burger-icon span {
     display: inline-flex;
-    height: 2px;
+    height: 1px;
     background-color: #111;
     transition: all 0.3s;
 }
@@ -273,7 +273,7 @@ section {
     color: #111;
 }
 .home-search-bar,
-.landing-text-container button {
+.main-btn {
     border: none;
     outline: none;
     background: #00000028;
@@ -309,7 +309,7 @@ section {
 .section-header span {
     color: #11111163;
 }
-.landing-text-container button {
+.main-btn {
     text-align: center;
     width: 60%;
     display: flex;
@@ -320,7 +320,7 @@ section {
     transition: all 0.3s;
     font-size: 1.5em;
 }
-.landing-text-container button:hover {
+.main-btn:hover {
     background-color: #00000054;
 }
 .landing-slider {
@@ -1124,11 +1124,11 @@ p {
 /* Cart End */
 
 /* Checkout */
+.checkout-section {
+    margin-bottom: 60px;
+}
 .container form {
-    padding: 20px;
-    width: 700px;
-    background: #fff;
-    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    width: 50%;
 }
 
 .container form .title {
@@ -1145,20 +1145,14 @@ p {
 }
 
 .container form .row .col {
-    flex: 1 1 250px;
+    width: 100%;
 }
 
 .container form .row .col .title {
+    margin-top: 40px;
+    margin-bottom: 20px;
     font-size: 20px;
     color: #333;
-    padding-top: 20px;
-    text-transform: uppercase;
-}
-
-.container form .row .col .title1 {
-    font-size: 20px;
-    color: #333;
-    padding-bottom: 10px;
     text-transform: uppercase;
 }
 
@@ -1171,12 +1165,18 @@ p {
     display: block;
 }
 
-.container form .row .col .inputbox input {
+.container form .row .col .inputbox input,
+.container form .row .col .inputbox select {
     width: 100%;
     border: 1px solid #ccc;
-    padding: 10px 15px;
-    font-size: 15px;
+    padding: 15px 20px;
+    font-size: 14px;
     text-transform: none;
+    background: transparent;
+}
+.container form .row .col .inputbox select.default,
+.container form .row .col .inputbox select option:disabled {
+    color: #11111187;
 }
 
 .container form .row .col .inputbox input:focus {
@@ -1190,6 +1190,7 @@ p {
 
 .container form .row .col .flex .inputbox {
     margin-top: 5px;
+    width: 50%;
 }
 
 .container form .row .col .inputbox image {
@@ -1197,19 +1198,16 @@ p {
     margin-top: 5px;
     filter: drop-shadow(0 0 1px #000);
 }
-
-.container form .submit-btn {
-    width: 100%;
-    padding: 12px;
-    font-size: 17px;
-    background: grey;
-    color: #fff;
-    margin-top: 5px;
-    cursor: pointer;
+.form-btn-container {
+    display: flex;
+    gap: 15px;
 }
-
-.container form .submit-btn:hover {
-    background: black;
+.btn-half {
+    width: 50%;
+}
+.payment-btn {
+    width: 100%;
+    font-size: 16px;
 }
 /* Checkout End */
 
