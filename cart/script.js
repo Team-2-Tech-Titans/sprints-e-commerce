@@ -1,6 +1,6 @@
 let cartItems = JSON.parse(localStorage.getItem('cart'));
 let originalCartItems = JSON.parse(localStorage.getItem('cart'));
-const calcuateSubTotal = (x = 0) => {
+const calculateSubTotal = (x = 0) => {
     let totalItem = 0;
     cartItems.map((item) => {
         totalItem += item.quantity * item.price;
@@ -59,10 +59,10 @@ const draw = (cartItems) => {
                     </div>
                 </div>
     `).join('')}`
-    subTotal.innerHTML = "$ " + calcuateSubTotal();
+    subTotal.innerHTML = "$ " + calculateSubTotal();
     shippingAmount = cartItems.length > 0 ? 10 : 0;
     shippingTax.innerHTML = "$ " + shippingAmount;
-    total.innerHTML = '$ ' + calcuateSubTotal(cartItems.length > 0 ? 10 : 0);
+    total.innerHTML = '$ ' + calculateSubTotal(cartItems.length > 0 ? 10 : 0);
     if (cartItems.length === 0) {
         cartContainer.innerHTML = `<h1>No items added yet.<a href="../products/"><br />Wants to add some?</a></h1>`
     }
@@ -110,7 +110,7 @@ const resetQuantityProd = (i) => {
 }
 
 checkBoxItem.addEventListener('click', () => {
-    if (calcuateSubTotal(cartItems.length > 0 ? 10 : 0) != 0) {
+    if (calculateSubTotal(cartItems.length > 0 ? 10 : 0) != 0) {
         if (checkBoxItem.value) {
             document.getElementById('continueButton').toggleAttribute('disabled');
             document.getElementById('continueButton').addEventListener('click', () => { window.location.href = '/checkout/' });
