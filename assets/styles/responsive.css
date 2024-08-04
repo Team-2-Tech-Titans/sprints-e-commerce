@@ -14,6 +14,65 @@
   }
 }
 
+/*nav*/
+@media (max-width: 768px) {
+  .burger-icon {
+    display: flex;
+  }
+
+  .nav-list {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 250px;
+    background-color: #fff;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 60px 20px;
+    transform: translateX(-100%);
+  }
+
+  .cart-text {
+    display: none;
+  }
+
+  .profile {
+    display: none;
+  }
+
+  .nav-list.active {
+    transform: translateX(0);
+  }
+
+  .header-logo {
+    order: 1;
+    height: 40px;
+    margin-right: -50px;
+  }
+
+  .header-btns {
+    order: 2;
+    gap: 10px;
+  }
+
+  .toggle-theme,
+  .cart-icon {
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    padding: 25px;
+    width: 10px;
+    height: 10px;
+    background-color: #111111f1;
+    color: #fff;
+    cursor: pointer;
+    transition: all 0.3s;
+  }
+}
+/*end nav*/
+
 /*Products*/
 /* Responsive Styles */
 @media (max-width: 768px) {
@@ -33,7 +92,7 @@
     animation: loader 1s ease-in-out infinite forwards;
     border-radius: 50%;
     border-top-color: transparent;
-}
+  }
 
   .pro-container {
     flex-direction: column;
@@ -85,10 +144,9 @@
     width: 70%;
   }
 
-  .search-bar{
+  .search-bar {
     width: 100%;
-}
-
+  }
 }
 
 /* Desktop styles */
@@ -109,33 +167,33 @@
 /*End Products*/
 @media (max-width: 1070px) {
   .orderSummary {
-      position: sticky;
-      transform: translateY(0);
-      margin: 2rem auto;
+    position: sticky;
+    transform: translateY(0);
+    margin: 2rem auto;
   }
   .shoppingCartSection {
-      margin: auto;
+    margin: auto;
   }
 }
 @media (max-width: 970px) {
   .shoppingCartItems {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   .shoppingCartItem1::after {
-      content: "";
-      height: 0px;
+    content: "";
+    height: 0px;
   }
   .shoppingCartSection {
-      margin: auto;
+    margin: auto;
   }
 }
 @media (max-width: 640px) {
   .shoppingCartTitles {
-      width: 100%;
+    width: 100%;
   }
   .shoppingCartSection {
-      margin: auto;
+    margin: auto;
   }
 }

@@ -101,11 +101,20 @@ header {
     width: 100%;
     justify-content: space-between;
     align-items: center;
+    position: relative;
 }
 
 nav {
     display: flex;
-    gap: 15px;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.nav-left {
+    display: flex;
+    align-items: center;
+    gap: 35px;
 }
 
 .burger-icon {
@@ -119,7 +128,7 @@ nav {
 
 .burger-icon span {
     display: inline-flex;
-    height: 1px;
+    height: 3px;
     background-color: #111;
     transition: all 0.3s;
 }
@@ -143,15 +152,16 @@ nav {
 ul.nav-list {
     display: flex;
     align-items: center;
-    gap: 30px;
-    margin-left: 30px;
+    gap: 35px;
+    margin: 0;
+    padding: 0;
 }
 
 li.nav-item {
     font-size: 1.5em;
     position: relative;
     overflow: hidden;
-    padding: 7px;
+    padding: 10px;
     cursor: pointer;
 }
 
@@ -159,6 +169,7 @@ li.nav-item a {
     color: #111;
     z-index: 5;
     position: relative;
+    padding: 5px 10px;
 }
 
 li.nav-item::before {
@@ -183,7 +194,10 @@ li.nav-item:hover::before {
 }
 
 .header-logo {
+    display: flex;
+    justify-content: center;
     transition: all 0.3s;
+    margin: 0px 20px; 
 }
 
 .header-logo:hover {
@@ -194,12 +208,13 @@ li.nav-item:hover::before {
 .header-btns {
     display: flex;
     align-items: center;
-    gap: 50px;
+    gap: 20px;
 }
 
 .cart {
     display: flex;
-    flex-direction: row;
+    align-items: center;
+    position: relative;
 }
 
 .toggle-theme,
@@ -246,6 +261,7 @@ li.nav-item:hover::before {
     top: 0;
     right: 0;
 }
+
 
 /* Nav End*/
 

@@ -1,28 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../assets/styles/normalize.css" />
-        <link rel="stylesheet" href="../assets/styles/main.css" />
-        <link rel="stylesheet" href="../assets/styles/dark.css" />
-        <link rel="stylesheet" href="../assets/styles/responsive.css" />
-        <link
-            rel="stylesheet"
-            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
-        />
-        <title>Titans Store | Products</title>
-    </head>
 
-    <body>
-        <header>
-            <nav>
-                <span class="burger-icon">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../assets/styles/normalize.css" />
+    <link rel="stylesheet" href="../assets/styles/main.css" />
+    <link rel="stylesheet" href="../assets/styles/responsive.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <title>Titans Store | Products</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="nav-left">
+                <span class="burger-icon" id="burger-icon">
                     <span></span>
                     <span></span>
                     <span></span>
                 </span>
-                <ul class="nav-list">
+                <ul class="nav-list" id="nav-list">
                     <li class="nav-item">
                         <a href="../#Home">Home</a>
                     </li>
@@ -31,7 +29,7 @@
                     </li>
                     <li class="nav-item"><a href="../#New">New</a></li>
                 </ul>
-            </nav>
+            </div>
             <div class="header-logo">
                 <img src="/assets/images/logo.png" alt="Logo" />
             </div>
@@ -40,152 +38,90 @@
                 <a href="../cart/">
                     <span class="cart">
                         <span class="cart-text">Cart</span>
-                        <span class="cart-icon"
-                            ><img
-                                src="/assets/images/cart-icon.png"
-                                alt="Cart" />
-                            <span class="cart-count" id="cart-count"></span
-                        ></span>
+                        <span class="cart-icon"><img src="/assets/images/cart-icon.png" alt="Cart" />
+                            <span class="cart-count" id="cart-count"></span></span>
                     </span>
                 </a>
-                <span class="profile"
-                    ><img src="/assets/images/profile-icon.png" alt="Profile"
-                /></span>
+                <span class="profile"><img src="/assets/images/profile-icon.png" alt="Profile" /></span>
             </div>
-        </header>
-        <div class="pro-container">
-            <aside class="sidebar">
-                <div class="filters">
-                    <h2>Filters</h2>
-                    <div class="filter-section">
-                        <div class="filter-section category">
-                            <h3
-                                class="filter-header"
-                                onclick="collapseFilter(event)"
-                            >
-                                Category<span
-                                    ><i class="fa-solid fa-angle-right"></i
-                                ></span>
-                            </h3>
-                        </div>
-                        <div class="filter-section price">
-                            <h3
-                                class="filter-header"
-                                onclick="collapseFilter(event)"
-                            >
-                                Price<span
-                                    ><i class="fa-solid fa-angle-right"></i
-                                ></span>
-                            </h3>
-                            <div class="filter-options">
-                                <h4>Sort By:</h4>
-                                <div class="sort-options">
-                                    <select
-                                        id="sort-select"
-                                        onchange="sortProducts()"
-                                    >
-                                        <option value="default">
-                                            Choose...
-                                        </option>
-                                        <option value="price-asc">
-                                            Price: Low to High
-                                        </option>
-                                        <option value="price-desc">
-                                            Price: High to Low
-                                        </option>
-                                    </select>
-                                </div>
-                            </div>
-                        </div>
-                        <h3
-                            class="filter-header"
-                            onclick="collapseFilter(event)"
-                        >
-                            Availability
-                            <span><i class="fa-solid fa-angle-right"></i></span>
+        </nav>
+    </header>
+    <div class="pro-container">
+        <aside class="sidebar">
+            <div class="filters">
+                <h2>Filters</h2>
+                <div class="filter-section">
+                    <div class="filter-section category">
+                        <h3 class="filter-header" onclick="collapseFilter(event)">
+                            Category<span><i class="fa-solid fa-angle-right"></i></span>
+                        </h3>
+                    </div>
+                    <div class="filter-section price">
+                        <h3 class="filter-header" onclick="collapseFilter(event)">
+                            Price<span><i class="fa-solid fa-angle-right"></i></span>
                         </h3>
                         <div class="filter-options">
-                            <label
-                                ><input type="checkbox" /> Availability
-                                (450)</label
-                            >
-                            <label
-                                ><input type="checkbox" /> Out Of Stock
-                                (18)</label
-                            >
+                            <h4>Sort By:</h4>
+                            <div class="sort-options">
+                                <select id="sort-select" onchange="sortProducts()">
+                                    <option value="default">
+                                        Choose...
+                                    </option>
+                                    <option value="price-asc">
+                                        Price: Low to High
+                                    </option>
+                                    <option value="price-desc">
+                                        Price: High to Low
+                                    </option>
+                                </select>
+                            </div>
                         </div>
                     </div>
+                    <h3 class="filter-header" onclick="collapseFilter(event)">
+                        Availability
+                        <span><i class="fa-solid fa-angle-right"></i></span>
+                    </h3>
+                    <div class="filter-options">
+                        <label><input type="checkbox" /> Availability
+                            (450)</label>
+                        <label><input type="checkbox" /> Out Of Stock
+                            (18)</label>
+                    </div>
                 </div>
-            </aside>
-            <div class="main-content">
-                <div class="breadcrumb">
-                    <button id="toggle-filters" class="toggle-filters">
-                        <h3>Filters</h3>
-                    </button>
-                    <a href="../#Home">Home</a> / <a href="#">Products</a>
-                </div>
-                <h1>Products</h1>
-                <div class="search-container">
-                    <i class="fa-solid fa-magnifying-glass"></i>
-                    <input
-                        class="search-bar home-search-bar"
-                        type="text"
-                        name="search"
-                        id="search"
-                        placeholder="Search"
-                    />
-                </div>
-                <div class="filter-buttons">
-                    <button onclick="window.location.href = './'">All</button>
-                    <button onclick="window.location.href = './?type=Shirt'">
-                        Shirts
-                    </button>
-                    <button onclick="window.location.href = './?type=Pants'">
-                        Pants
-                    </button>
-                    <button onclick="window.location.href = './?type=Shoes'">
-                        Shoes
-                    </button>
-                </div>
-                <div class="product-listing" id="product-listing">
-                    <span class="loader"></span>
-                </div>
-                <div class="pagination"></div>
             </div>
+        </aside>
+        <div class="main-content">
+            <div class="breadcrumb">
+                <button id="toggle-filters" class="toggle-filters">
+                    <h3>Filters</h3>
+                </button>
+                <a href="../#Home">Home</a> / <a href="#">Products</a>
+            </div>
+            <h1>Products</h1>
+            <div class="search-container">
+                <i class="fa-solid fa-magnifying-glass"></i>
+                <input class="search-bar home-search-bar" type="text" name="search" id="search" placeholder="Search" />
+            </div>
+            <div class="filter-buttons">
+                <button onclick="window.location.href = './'">All</button>
+                <button onclick="window.location.href = './?type=Shirt'">
+                    Shirts
+                </button>
+                <button onclick="window.location.href = './?type=Pants'">
+                    Pants
+                </button>
+                <button onclick="window.location.href = './?type=Shoes'">
+                    Shoes
+                </button>
+            </div>
+            <div class="product-listing" id="product-listing">
+                <span class="loader"></span>
+            </div>
+            <div class="pagination"></div>
         </div>
-        <footer>
-            <div class="footer-body">
-                <div class="footer-text">
-                    <div class="info">
-                        <span>info</span>
-                        <ul>
-                            <li>pricing<span>/</span></li>
-                            <li>about<span>/</span></li>
-                            <li>contacts</li>
-                        </ul>
-                    </div>
-                    <div class="langs">
-                        <span>Languages</span>
-                        <ul>
-                            <li>eng<span>/</span></li>
-                            <li>esp<span>/</span></li>
-                            <li>sve</li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="footer-tech">
-                    <span>Technologies</span>
-                    <h1>VR</h1>
-                    <h1>XIV <span>Near-field communication </span></h1>
-                    <h1>QR</h1>
-                </div>
-            </div>
-            <div class="copyright"><p>
-                © Copyright ©2024 All rights reserved | This
-                website is made with
-                <a href="#" class="tech-titans">Tech Titans Team</a></div>
-        </footer>
-        <script src="script.js"></script>
-        <script src="../assets/scripts/main.js"></script>
-    </body>
+    </div>
+    <script src="script.js"></script>
+    <script src="../assets/scripts/main.js"></script>
+</body>
+
 </html>
