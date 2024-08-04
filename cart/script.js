@@ -1,7 +1,21 @@
-const cartItems = JSON.parse(localStorage.getItem('cart'))
+let cartItems = JSON.parse(localStorage.getItem('cart'));
+let originalCartItems = JSON.parse(localStorage.getItem('cart'));
+const calcuateSubTotal = (x = 0) => {
+    let totalItem = 0;
+    cartItems.map((item) => {
+        totalItem += item.quantity * item.price;
+    })
+    return totalItem + x;
+}
+let total = document.getElementById('total');
+let subTotal = document.getElementById('subtotal');
+let cartContainer = document.getElementById('cart-container');
+let shippingTax = document.getElementById('shippingTax');
+let checkBoxItem = document.getElementById('checkBoxItem');
 
-const cartContainer = document.getElementById('cart-container');
-cartContainer.innerHTML = `${cartItems.map((item) => `
+const draw = (cartItems) => {
+
+    cartContainer.innerHTML = `${cartItems.map((item, i) => `
         <div class="shoppingCartItem">
                     <div class="product-info-cart">
                         <div class="product-img">
@@ -19,30 +33,77 @@ cartContainer.innerHTML = `${cartItems.map((item) => `
                             </div>
                         </div>
                         <div class="product-name">
-                            <p>Cotton T-shirt</p>
+                        <p>Cotton T-shirt</p>
                             <div class="test">
-                                <h4>Full Sleeve Zipper</h4>
-                                <span>$ 99 </span>
+                                <h4>${item.name}</h4>
+                                <span>$ ${item.price}</span>
                             </div>
                         </div>
                     </div>
                     <div class="product-options">
-                        <button><i class="fa-solid fa-xmark"></i></button>
+                        <button onclick ="deleteQuantityProd(${i})"><i class="fa-solid fa-xmark"></i></button>
                         <span name="size" id="size" class="custom-select"
-                            >XL</span
+                            >${item.size}</span
                         >
                         <p
                             class="prod-card-color prodColor"
-                            style="background-color: black"
+                            style="background-color: ${item.color}"
                         ></p>
                         <div class="btn-group-increment">
-                            <button type="button" class="btnLight">+</button>
-                            <button type="button" class="btnLight">1</button>
-                            <button type="button" class="btnLight">-</button>
+                            <button type="button" class="btnLight" onclick ="increaseQuantityProd(${item.quantity}, ${i})">+</button>
+                            <button type="button" class="btnLight">${item.quantity}</button>
+                            <button type="button" class="btnLight" onclick ="decreaseQuantityProd(${item.quantity}, ${i})">-</button>
                         </div>
-                        <button class="refreshIcon">
+                        <button class="refreshIcon" onclick ="resetQuantityProd(${i})">
                             <i class="fa-solid fa-arrows-rotate"></i>
                         </button>
                     </div>
                 </div>
     `).join('')}`
+    subTotal.innerHTML = "$ " + calcuateSubTotal();
+    shippingAmount = cartItems.length > 0 ? 10 : 0;
+    shippingTax.innerHTML = "$ " + shippingAmount;
+    total.innerHTML = '$ ' + calcuateSubTotal(cartItems.length > 0 ? 10 : 0);
+
+
+}
+draw(cartItems);
+const increaseQuantityProd = (quantity, i) => {
+    cartItems[i].quantity = quantity + 1;
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    draw(cartItems);
+}
+const decreaseQuantityProd = (quantity, i) => {
+    if (cartItems[i].quantity != 1) {
+        cartItems[i].quantity = quantity - 1;
+    }
+    else {
+        cartItems.splice(i, 1);
+    }
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    draw(cartItems);
+
+}
+const deleteQuantityProd = (i) => {
+    cartItems.splice(i, 1);
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    draw(cartItems);
+
+}
+const resetQuantityProd = (i) => {
+    cartItems[i].quantity = originalCartItems[i].quantity;
+    localStorage.setItem('cart', JSON.stringify(cartItems));
+    draw(cartItems);
+}
+
+checkBoxItem.addEventListener('click', () => {
+    if (calcuateSubTotal(cartItems.length > 0 ? 10 : 0) != 0) {
+        if (checkBoxItem.value) {
+            document.getElementById('continueButton').toggleAttribute('disabled');
+        }
+    }
+    else {
+        document.getElementById('continueButton').addAttribute('disabled');
+    }
+
+});

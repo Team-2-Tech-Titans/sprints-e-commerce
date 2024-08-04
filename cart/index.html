@@ -65,7 +65,7 @@
                 </button>
             </div>
             <div class="shoppingCartItems" id="cart-container">
-                <div class="shoppingCartItem">
+                <!-- <div class="shoppingCartItem">
                     <div class="product-info-cart">
                         <div class="product-img">
                             <img
@@ -108,31 +108,31 @@
                         </button>
                     </div>
                 </div>
-            </div>
+            </div> -->
         </div>
 
         <div class="orderSummary">
-            <div class="summary-container">
+            <div class="summary-container" >
                 <h3>ORDER SUMMARY</h3>
                 <div class="subTotal">
                     <h4>Subtotal</h4>
-                    <span>$ 180</span>
+                    <span id="subtotal"></span>
                 </div>
                 <div class="shippingTaxes">
                     <h4>Shipping</h4>
-                    <span>$ 10</span>
+                    <span id="shippingTax">$ 10</span>
                 </div>
                 <hr />
                 <div class="totalCost">
                     <h4>TOTAL<span>(Tax incl.)</span></h4>
-                    <p>$ 190</p>
+                    <p id="total"></p>
                 </div>
-                <div class="chechBox">
-                    <input type="checkbox" /><span
+                <div class="chechBox" >
+                    <input type="checkbox" id="checkBoxItem" /><span
                         >I agree to the Terms and Conditions</span
                     >
                 </div>
-                <button type="submit">CONTINUE</button>
+                <button type="submit" id="continueButton" disabled>CONTINUE</button>
             </div>
         </div>
     </body>
