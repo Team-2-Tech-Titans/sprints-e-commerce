@@ -1,6 +1,6 @@
 let allProducts = [];
 let filteredProducts = [];
-let selectedCategory = localStorage.getItem('selectedCategory') || '';
+let selectedCategories = JSON.parse(localStorage.getItem('selectedCategories')) || [];
 let selectedSortOrder = localStorage.getItem('selectedSortOrder') || 'default';
 
 const urlParams = new URLSearchParams(window.location.search);
@@ -34,8 +34,8 @@ const applyFiltersAndSorting = () => {
     filteredProducts = [...allProducts];
 
     // Apply category filter
-    if (selectedCategory) {
-        filteredProducts = filteredProducts.filter(prod => prod.categoryName === selectedCategory);
+    if (selectedCategories.length > 0) {
+        filteredProducts = filteredProducts.filter(prod => selectedCategories.includes(prod.categoryName));
     }
 
     // Apply sorting
@@ -105,7 +105,7 @@ const displayFilters = (products) => {
         <div class="filter-options">
             ${categories.map(category => `
                 <label>
-                    <input type="checkbox" value="${category.name}" onclick="filterByCategory(event)" ${category.name === selectedCategory ? 'checked' : ''}/> ${category.name} (<span style="color:black;">${category.count}</span>)
+                    <input type="checkbox" value="${category.name}" onclick="filterByCategory(event)" ${selectedCategories.includes(category.name) ? 'checked' : ''}/> ${category.name} (<span style="color:black;">${category.count}</span>)
                 </label>
             `).join("")}
         </div>
@@ -117,11 +117,11 @@ const displayFilters = (products) => {
 const filterByCategory = (e) => {
     const category = e.target.value;
     if (e.target.checked) {
-        selectedCategory = category;
+        selectedCategories.push(category);
     } else {
-        selectedCategory = '';
+        selectedCategories = selectedCategories.filter(cat => cat !== category);
     }
-    localStorage.setItem('selectedCategory', selectedCategory);
+    localStorage.setItem('selectedCategories', JSON.stringify(selectedCategories));
     applyFiltersAndSorting();
 };
 
@@ -154,7 +154,16 @@ document.getElementById("toggle-filters").addEventListener("click", function () 
         sidebar.style.left = "-100%";
     }
 });
-
+document.addEventListener("DOMContentLoaded", function() {
+    const burgerIcon = document.getElementById("burger-icon");
+    const navList = document.getElementById("nav-list");
+  
+    burgerIcon.addEventListener("click", function() {
+      navList.classList.toggle("active");
+      burgerIcon.classList.toggle("active");
+    });
+  });
+  
 document.getElementById('sort-select').addEventListener('change', sortProducts);
 
 document.addEventListener('DOMContentLoaded', getProducts);
