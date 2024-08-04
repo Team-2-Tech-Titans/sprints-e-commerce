@@ -5,7 +5,7 @@ const calcuateSubTotal = (x = 0) => {
     cartItems.map((item) => {
         totalItem += item.quantity * item.price;
     })
-    return totalItem + x;
+    return (totalItem + x).toFixed(2);
 }
 let total = document.getElementById('total');
 let subTotal = document.getElementById('subtotal');
@@ -14,7 +14,6 @@ let shippingTax = document.getElementById('shippingTax');
 let checkBoxItem = document.getElementById('checkBoxItem');
 
 const draw = (cartItems) => {
-
     cartContainer.innerHTML = `${cartItems.map((item, i) => `
         <div class="shoppingCartItem">
                     <div class="product-info-cart">
@@ -64,10 +63,13 @@ const draw = (cartItems) => {
     shippingAmount = cartItems.length > 0 ? 10 : 0;
     shippingTax.innerHTML = "$ " + shippingAmount;
     total.innerHTML = '$ ' + calcuateSubTotal(cartItems.length > 0 ? 10 : 0);
-
-
+    if (cartItems.length === 0) {
+        cartContainer.innerHTML = `<h1>No items added yet.<a href="../products/"><br />Wants to add some?</a></h1>`
+    }
 }
-draw(cartItems);
+if (cartItems.length) {
+    draw(cartItems);
+}
 const increaseQuantityProd = (quantity, i) => {
     cartItems[i].quantity = quantity + 1;
     localStorage.setItem('cart', JSON.stringify(cartItems));
@@ -79,6 +81,7 @@ const decreaseQuantityProd = (quantity, i) => {
     }
     else {
         cartItems.splice(i, 1);
+        updateCartCount()
     }
     localStorage.setItem('cart', JSON.stringify(cartItems));
     draw(cartItems);
@@ -87,8 +90,18 @@ const decreaseQuantityProd = (quantity, i) => {
 const deleteQuantityProd = (i) => {
     cartItems.splice(i, 1);
     localStorage.setItem('cart', JSON.stringify(cartItems));
+    updateCartCount();
     draw(cartItems);
 
+}
+const updateCartCount = () => {
+    const count = document.getElementById('cart-count')
+    if (cartItems.length) {
+        count.style.display = 'flex'
+    } else {
+        count.style.display = 'none'
+    }
+    count.innerHTML = cartItems.length
 }
 const resetQuantityProd = (i) => {
     cartItems[i].quantity = originalCartItems[i].quantity;
@@ -100,10 +113,11 @@ checkBoxItem.addEventListener('click', () => {
     if (calcuateSubTotal(cartItems.length > 0 ? 10 : 0) != 0) {
         if (checkBoxItem.value) {
             document.getElementById('continueButton').toggleAttribute('disabled');
+            document.getElementById('continueButton').addEventListener('click', () => { window.location.href = '/checkout/' });
         }
     }
     else {
-        document.getElementById('continueButton').addAttribute('disabled');
+        document.getElementById('continueButton').toggleAttribute('disabled');
+        document.getElementById('continueButton').removeEventListener('click', () => { window.location.href = '/checkout/' });
     }
-
 });

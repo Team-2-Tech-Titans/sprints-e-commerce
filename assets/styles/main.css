@@ -877,7 +877,11 @@ select {
     gap: 2rem;
     margin-left: 2rem;
 }
-
+.shoppingCartItems h1 a {
+    color: blue;
+    text-decoration: underline;
+    font-size: 0.5em;
+}
 .product-info-cart {
     width: 70%;
     background-color: transparent;
@@ -1078,9 +1082,11 @@ p {
     margin: auto;
     width: 229px;
     height: 40px;
+    transition: all 0.3s;
+    cursor: pointer;
 }
 .orderSummary button:hover {
-    transform: scale(1.05, 1.05);
+    background-color: #11111163;
 }
 /* Media Query */
 @media (max-width: 1070px) {
