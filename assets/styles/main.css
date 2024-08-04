@@ -466,7 +466,27 @@ section {
 .show-more i {
     color: #111;
 }
-
+section.approach{
+    text-align: center;
+}
+.approach-text{
+    width: 60%;
+    margin: auto;
+    margin-bottom: 40px;
+}
+.approach-images{
+    display: flex;
+    gap: 20px;
+    margin-top: 150px;
+}
+.approach-images img{
+    width: calc(25% - 15px);
+    border: 1px solid #11111163;
+}
+.approach-images img:nth-child(1),
+.approach-images img:nth-child(3){
+    transform: translateY(-50px);
+}
 /* Home End */
 
 /* Products */
