@@ -45,7 +45,8 @@ body.dark-mode .header-btns .cart-count {
     background-color: #333;
     color: #e0e0e0;
 }
-body.dark-mode .header-btns .cart-count{
+
+body.dark-mode .header-btns .cart-count {
     background-color: red;
 }
 
@@ -152,6 +153,7 @@ body.dark-mode .pagination span:nth-child(1):hover,
 body.dark-mode .pagination span:nth-child(3):hover {
     background-color: #555;
 }
+
 body.dark-mode .search-container i,
 body.dark-mode .product-sub-title,
 body.dark-mode .product-details h5,
@@ -162,29 +164,37 @@ body.dark-mode .product-name p,
 body.dark-mode .product-name h4,
 body.dark-mode .btnLight,
 body.dark-mode .shoppingCartTitles button,
-body.dark-mode .chechBox span{
+body.dark-mode .chechBox span,
+body.dark-mode .section-header span {
     color: #e0e0e0;
 }
-body.dark-mode .sizes-container input[type="radio"]:checked+label,body.dark-mode .colors-container input[type="radio"]:checked+label{
+
+body.dark-mode .sizes-container input[type="radio"]:checked+label,
+body.dark-mode .colors-container input[type="radio"]:checked+label {
     color: #222;
 }
+
 body.dark-mode .product-small-image,
 body.dark-mode .product-big-image,
-body.dark-mode .your-order{
+body.dark-mode .your-order {
     border-color: #eee;
 }
-body.dark-mode .totalCost span{
+
+body.dark-mode .totalCost span {
     color: #eee;
     opacity: 0.6;
 }
+
 body.dark-mode .container form .row .col .inputbox select.default,
-body.dark-mode .container form .row .col .inputbox select option:disabled{
+body.dark-mode .container form .row .col .inputbox select option:disabled {
     color: #eeeeee75;
 }
-body.dark-mode .container form .row .col .inputbox select option{
+
+body.dark-mode .container form .row .col .inputbox select option {
     color: #eee;
     background-color: #222;
 }
+
 body.dark-mode .approach {
     text-align: center;
 }
@@ -228,7 +238,7 @@ body.dark-mode footer {
 body.dark-mode .footer-body,
 body.dark-mode .footer-text {
     text-transform: uppercase;
-    color: #e0e0e0; 
+    color: #e0e0e0;
     flex-direction: column;
     gap: 50px;
     font-size: 14px;
@@ -264,18 +274,25 @@ body.dark-mode .copyright {
     font-size: 8px;
     opacity: 0.5;
 }
-body.dark-mode .shoppingCartTitles i{
+
+body.dark-mode .shoppingCartTitles i {
     background: transparent;
 }
-body.dark-mode .orderSummary button{
+
+body.dark-mode .orderSummary button {
     background: #222;
     border: 1px solid #e0e0e0;
     color: #e0e0e0;
 }
-body.dark-mode .orderSummary button:hover{
+
+body.dark-mode .orderSummary button:hover {
     background: #e0e0e0;
     border: 1px solid #222;
     color: #222;
+}
+
+body.dark-mode .main-btn img {
+    filter: invert();
 }
 body.dark-mode .fa-arrows-rotate, 
 body.dark-mode .fa-xmark,
