@@ -1137,9 +1137,9 @@ p {
 
 /* Order Summary */
 .orderSummary {
-    position: fixed;
+    position:  absolute;
     right: 80px;
-    top: 50%;
+    top: 70%;
     transform: translateY(-30%);
     width: 306px;
     border: 1px solid #d9d9d9;
@@ -1214,6 +1214,9 @@ p {
 
 .orderSummary button:hover {
     background-color: #11111163;
+}
+footer{
+    margin-top: 2rem;
 }
 /* Cart End */
 

@@ -167,9 +167,13 @@
 /*End Products*/
 @media (max-width: 1070px) {
   .orderSummary {
-    position: sticky;
-    transform: translateY(0);
-    margin: 2rem auto;
+    position: relative;
+    transform: translateX(0);
+    margin: auto;
+    top: 0;
+    right: 0;
+    margin-top: 2rem;
+    margin-bottom: 2rem;
   }
   .shoppingCartSection {
     margin: auto;
@@ -179,6 +183,7 @@
   .shoppingCartItems {
     display: grid;
     grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
     gap: 2rem;
   }
   .shoppingCartItem1::after {
