@@ -1,8 +1,11 @@
 body.dark-mode,
-body.dark-mode aside.sidebar,
-body.dark-mode .nav-list {
+body.dark-mode aside.sidebar {
   background-color: #121212;
   color: #e0e0e0;
+}
+
+body.dark-mode .nav-list {
+  background-color: #1f1f1f;
 }
 
 body.dark-mode::before {
@@ -51,7 +54,7 @@ body.dark-mode .header-btns .cart-count {
 }
 
 body.dark-mode .header-btns .cart-count {
-    background-color: red;
+  background-color: red;
 }
 
 body.dark-mode .toggle-theme:hover,
@@ -170,12 +173,13 @@ body.dark-mode .product-name h4,
 body.dark-mode .btnLight,
 body.dark-mode .shoppingCartTitles button,
 body.dark-mode .chechBox span,
-body.dark-mode .toggle-filters ,
+body.dark-mode .toggle-filters,
 body.dark-mode .section-header span {
   color: #e0e0e0;
 }
-body.dark-mode .sizes-container input[type="radio"]:checked + label,
-body.dark-mode .colors-container input[type="radio"]:checked + label {
+
+body.dark-mode .sizes-container input[type="radio"]:checked+label,
+body.dark-mode .colors-container input[type="radio"]:checked+label {
   color: #222;
 }
 
@@ -184,6 +188,7 @@ body.dark-mode .product-big-image,
 body.dark-mode .your-order {
   border-color: #eee;
 }
+
 body.dark-mode .totalCost span {
   color: #eee;
   opacity: 0.6;
@@ -193,6 +198,7 @@ body.dark-mode .container form .row .col .inputbox select.default,
 body.dark-mode .container form .row .col .inputbox select option:disabled {
   color: #eeeeee75;
 }
+
 body.dark-mode .container form .row .col .inputbox select option {
   color: #eee;
   background-color: #222;
@@ -259,7 +265,7 @@ body.dark-mode .footer-body span {
   font-size: 12px;
 }
 
-body.dark-mode .footer-body > .footer-text > div > span {
+body.dark-mode .footer-body>.footer-text>div>span {
   margin-bottom: 25px;
 }
 
@@ -277,36 +283,39 @@ body.dark-mode .copyright {
   font-size: 8px;
   opacity: 0.5;
 }
+
 body.dark-mode .shoppingCartTitles i {
   background: transparent;
 }
 
-body.dark-mode .orderSummary button  {
+body.dark-mode .orderSummary button {
   background: #222;
   border: 1px solid #e0e0e0;
   color: #e0e0e0;
 }
 
-body.dark-mode .orderSummary button:hover  {
+body.dark-mode .orderSummary button:hover {
   background: #e0e0e0;
   border: 1px solid #222;
   color: #222;
 }
 
 body.dark-mode .main-btn img {
-    filter: invert();
+  filter: invert();
 }
-body.dark-mode .fa-arrows-rotate, 
+
+body.dark-mode .fa-arrows-rotate,
 body.dark-mode .fa-xmark,
-body.dark-mode .custom-select
-{
-    color: white;
+body.dark-mode .custom-select {
+  color: white;
 }
+
 body.dark-mode .refreshIcon:hover,
-body.dark-mode .fa-xmark:hover{
-    color: white;
+body.dark-mode .fa-xmark:hover {
+  color: white;
 }
+
 body.dark-mode .btnLight:hover,
 body.dark-mode .custom-select:hover {
-    color: black;
+  color: black;
 }
