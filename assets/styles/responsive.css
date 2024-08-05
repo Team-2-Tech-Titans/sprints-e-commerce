@@ -272,6 +272,31 @@
   }
 }
 
+@media (width < 768px) {
+  .product-images {
+    flex-direction: column;
+  }
+
+  .product-big-image,
+  .product-images ul {
+    width: 100%;
+  }
+
+  .product-images ul {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .product-images ul li {
+    width: calc(20% - 12px)
+  }
+
+  .product-small-image {
+    width: 100%;
+    height: auto;
+  }
+}
+
 @media (width < 991px) {
   .landing-image-container {
     width: 100%;
@@ -299,6 +324,15 @@
 
   .new-week .landing-image-container .product-card {
     min-width: 250px;
+  }
+
+  #productDetails {
+    flex-direction: column;
+  }
+
+  .product-images,
+  .product-details {
+    width: 100%;
   }
 }
 
