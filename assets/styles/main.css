@@ -1125,7 +1125,7 @@ p {
     color: black;
 }
 
-.product-options button{
+.product-options button {
     color: #8a8a8a;
     background-color: transparent;
 }
@@ -1249,6 +1249,7 @@ p {
     display: flex;
     gap: 30px;
     font-weight: 200;
+    margin-bottom: 30px;
 }
 
 .checkout-nav span:nth-child(1) {
