@@ -6,7 +6,7 @@ const collectionListing = document.getElementById("home-collection");
 const options = {
     method: "GET",
     headers: {
-        "x-rapidapi-key": "30bed645bcmsh9f400527879b71cp11c344jsnc3483ae85716",
+        "x-rapidapi-key": "9e16bfe494msh233c229416dd7edp1d3927jsnecba836e69a5",
         "x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
     },
 };

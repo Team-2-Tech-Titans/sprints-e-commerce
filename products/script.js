@@ -9,14 +9,13 @@ const pageNum = urlParams.get("page") || 0;
 const ProductsType = urlParams.get("type");
 const baseUrl =
   "https://apidojo-hm-hennes-mauritz-v1.p.rapidapi.com/products/list";
-const url = `${baseUrl}?country=us&lang=en&currentpage=${pageNum}&pagesize=30${
-  ProductsType ? `&productTypes=${ProductsType}` : ""
-}`;
+const url = `${baseUrl}?country=us&lang=en&currentpage=${pageNum}&pagesize=30${ProductsType ? `&productTypes=${ProductsType}` : ""
+  }`;
 
 const options = {
   method: "GET",
   headers: {
-    "x-rapidapi-key": "30bed645bcmsh9f400527879b71cp11c344jsnc3483ae85716",
+    "x-rapidapi-key": "9e16bfe494msh233c229416dd7edp1d3927jsnecba836e69a5",
     "x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
   },
 };
@@ -63,20 +62,16 @@ const displayProducts = (products) => {
   productListing.innerHTML = products
     .map(
       (prod) => `
-        <div class="product-card" onclick="window.location.href='../product/?id=${
-          prod.articles[0].code
+        <div class="product-card" onclick="window.location.href='../product/?id=${prod.articles[0].code
         }'">
             <img src="${prod.images[0].url}" alt="${prod.name}">
             <div class="product-info">
-                <span>Category: ${prod.categoryName} ${
-        prod.rgbColors
-          ? `<span class="prod-card-color" style="background-color:${
-              prod.rgbColors[0]
-            }"></span>${
-              prod.rgbColors.length > 1 ? `+${prod.rgbColors.length}` : ""
-            }`
+                <span>Category: ${prod.categoryName} ${prod.rgbColors
+          ? `<span class="prod-card-color" style="background-color:${prod.rgbColors[0]
+          }"></span>${prod.rgbColors.length > 1 ? `+${prod.rgbColors.length}` : ""
+          }`
           : ""
-      }</span>
+        }</span>
                 <div class="card-text">
                     <h4>${prod.name}</h4>
                     <p>${prod.price.formattedValue}</p>
@@ -93,17 +88,13 @@ const displayPagination = (pagination) => {
   let pageNumber = pagination.currentPage + 1;
   let lastPage = pagination.numberOfPages;
   paginationContainer.innerHTML = `
-        <span onclick="changePage(${pagination.currentPage - 1}, '${
-    ProductsType || ""
-  }')" ${
-    pageNumber === 1 ? "style='display:none'" : ""
-  }><i class="fa-solid fa-angle-left"></i></span>
+        <span onclick="changePage(${pagination.currentPage - 1}, '${ProductsType || ""
+    }')" ${pageNumber === 1 ? "style='display:none'" : ""
+    }><i class="fa-solid fa-angle-left"></i></span>
         <span>${pageNumber}</span>
-        <span onclick="changePage(${pagination.currentPage + 1}, '${
-    ProductsType || ""
-  }')" ${
-    pageNumber === lastPage ? "style='display:none'" : ""
-  }><i class="fa-solid fa-angle-right"></i></span>
+        <span onclick="changePage(${pagination.currentPage + 1}, '${ProductsType || ""
+    }')" ${pageNumber === lastPage ? "style='display:none'" : ""
+    }><i class="fa-solid fa-angle-right"></i></span>
     `;
 };
 
@@ -133,20 +124,17 @@ const displayFilters = (products) => {
         <h3 class="filter-header" onclick="collapseFilter(event)">Category<span><i class="fa-solid fa-angle-right"></i></span></h3>
         <div class="filter-options">
             ${categories
-              .map(
-                (category) => `
+      .map(
+        (category) => `
                 <label>
-                    <input type="checkbox" value="${
-                      category.name
-                    }" onclick="filterByCategory(event)" ${
-                  selectedCategories.includes(category.name) ? "checked" : ""
-                }/> ${category.name} (<span style="color:black;">${
-                  category.count
-                }</span>)
+                    <input type="checkbox" value="${category.name
+          }" onclick="filterByCategory(event)" ${selectedCategories.includes(category.name) ? "checked" : ""
+          }/> ${category.name} (<span style="color:black;">${category.count
+          }</span>)
                 </label>
             `
-              )
-              .join("")}
+      )
+      .join("")}
         </div>
     `;
 
