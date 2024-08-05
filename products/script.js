@@ -51,7 +51,7 @@ const applyFiltersAndSorting = () => {
 const displayProducts = (products) => {
     const productListing = document.getElementById("product-listing");
     productListing.innerHTML = products.map(prod => `
-        <div class="product-card" onclick="window.location.href='/product/?id=${prod.articles[0].code}'">
+        <div class="product-card" onclick="window.location.href='../product/?id=${prod.articles[0].code}'">
             <img src="${prod.images[0].url}" alt="${prod.name}">
             <div class="product-info">
                 <span>Category: ${prod.categoryName} ${prod.rgbColors
@@ -154,16 +154,16 @@ document.getElementById("toggle-filters").addEventListener("click", function () 
         sidebar.style.left = "-100%";
     }
 });
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
     const burgerIcon = document.getElementById("burger-icon");
     const navList = document.getElementById("nav-list");
-  
-    burgerIcon.addEventListener("click", function() {
-      navList.classList.toggle("active");
-      burgerIcon.classList.toggle("active");
+
+    burgerIcon.addEventListener("click", function () {
+        navList.classList.toggle("active");
+        burgerIcon.classList.toggle("active");
     });
-  });
-  
+});
+
 document.getElementById('sort-select').addEventListener('change', sortProducts);
 
 document.addEventListener('DOMContentLoaded', getProducts);

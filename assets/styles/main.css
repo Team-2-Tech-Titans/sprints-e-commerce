@@ -3,7 +3,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Regular"),
-        url("/webfonts/BeatriceDeckTRIAL-Regular-BF64829e8e41476.woff") format("woff");
+        url("../../webfonts/BeatriceDeckTRIAL-Regular-BF64829e8e41476.woff") format("woff");
 }
 
 @font-face {
@@ -11,7 +11,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Medium"),
-        url("/webfonts/BeatriceDeckTRIAL-Medium-BF64829e8e8d71a.woff") format("woff");
+        url("../../webfonts/BeatriceDeckTRIAL-Medium-BF64829e8e8d71a.woff") format("woff");
 }
 
 @font-face {
@@ -19,7 +19,7 @@
     font-style: normal;
     font-weight: normal;
     src: local("Beatrice Deck Trial Bold"),
-        url("/webfonts/BeatriceDeckTRIAL-Bold-BF64829e8e9ca08.woff") format("woff");
+        url("../../webfonts/BeatriceDeckTRIAL-Bold-BF64829e8e9ca08.woff") format("woff");
 }
 
 * {
