@@ -27,7 +27,6 @@ const getCollection = async () => {
     try {
         const response = await fetch(collectionUrl, options);
         const data = await response.json();
-        console.log(data.results);
         displayProducts(data.results, collectionListing);
         collectionCards = document.querySelectorAll('#home-collection .product-card');
         for (let r = 3; r < collectionCards.length; r++) {

@@ -3,11 +3,13 @@
     width: 750px;
   }
 }
+
 @media (min-width: 991px) {
   .container {
     width: 970px;
   }
 }
+
 @media (min-width: 1200px) {
   .container {
     width: 1170px;
@@ -71,6 +73,7 @@
     transition: all 0.3s;
   }
 }
+
 /*end nav*/
 
 /*Products*/
@@ -132,6 +135,10 @@
   .product-card {
     width: calc(100% - 20px);
   }
+
+  .approach-text {
+    width: 80%;
+  }
 }
 
 /* Tablet styles */
@@ -171,29 +178,139 @@
     transform: translateY(0);
     margin: 2rem auto;
   }
+
   .shoppingCartSection {
     margin: auto;
   }
 }
+
 @media (max-width: 970px) {
   .shoppingCartItems {
     display: grid;
     grid-template-columns: 1fr;
     gap: 2rem;
   }
+
   .shoppingCartItem1::after {
     content: "";
     height: 0px;
   }
+
   .shoppingCartSection {
     margin: auto;
   }
 }
+
 @media (max-width: 640px) {
   .shoppingCartTitles {
     width: 100%;
   }
+
   .shoppingCartSection {
     margin: auto;
+  }
+}
+
+/* Home */
+@media (width < 1330px) {
+  .bottom-landing {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .image-slider-container,
+  .landing-text-container {
+    width: 100%;
+  }
+
+  .landing-buttons {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -60px;
+  }
+}
+
+@media (width < 1330px) {
+  .bottom-landing {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .image-slider-container,
+  .landing-text-container {
+    width: 100%;
+  }
+
+  .landing-buttons {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -60px;
+  }
+}
+
+@media (width < 550px) {
+  .bottom-landing .main-btn {
+    width: 100%;
+  }
+
+  .section-header h1 {
+    font-size: 1.5em;
+  }
+
+  .home-search-bar {
+    width: 100%;
+  }
+
+  #home-collection .product-card {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media (width < 991px) {
+  .landing-image-container {
+    width: 100%;
+    gap: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
+  .landing-image-container img {
+    width: 25%;
+    min-width: 300px;
+  }
+
+  .landing-buttons {
+    display: none;
+  }
+
+  .new-week .landing-image-container {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 25px;
+  }
+
+  .new-week .landing-image-container .product-card {
+    min-width: 250px;
+  }
+}
+
+@media (width < 1330px) {
+  .bottom-landing {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .image-slider-container,
+  .landing-text-container {
+    width: 100%;
+  }
+
+  .landing-buttons {
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -60px;
   }
 }
