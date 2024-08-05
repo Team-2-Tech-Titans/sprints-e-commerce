@@ -304,3 +304,7 @@ body.dark-mode .refreshIcon:hover,
 body.dark-mode .fa-xmark:hover{
     color: white;
 }
+body.dark-mode .btnLight:hover,
+body.dark-mode .custom-select:hover {
+    color: black;
+}

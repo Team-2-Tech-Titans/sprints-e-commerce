@@ -18,7 +18,7 @@ const draw = (cartItems) => {
         <div class="shoppingCartItem">
                     <div class="product-info-cart">
                         <div class="product-img">
-                            <img
+                            <img 
                                 src="${item.image}"
                                 alt="Full Sleeve Zipper "
                             />
