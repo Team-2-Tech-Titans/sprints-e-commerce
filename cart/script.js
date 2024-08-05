@@ -18,7 +18,7 @@ const draw = (cartItems) => {
         <div class="shoppingCartItem">
                     <div class="product-info-cart">
                         <div class="product-img">
-                            <img
+                            <img 
                                 src="${item.image}"
                                 alt="Full Sleeve Zipper "
                             />
@@ -113,11 +113,11 @@ checkBoxItem.addEventListener('click', () => {
     if (calculateSubTotal(cartItems.length > 0 ? 10 : 0) != 0) {
         if (checkBoxItem.value) {
             document.getElementById('continueButton').toggleAttribute('disabled');
-            document.getElementById('continueButton').addEventListener('click', () => { window.location.href = '/checkout/' });
+            document.getElementById('continueButton').addEventListener('click', () => { window.location.href = '../checkout/' });
         }
     }
     else {
         document.getElementById('continueButton').toggleAttribute('disabled');
-        document.getElementById('continueButton').removeEventListener('click', () => { window.location.href = '/checkout/' });
+        document.getElementById('continueButton').removeEventListener('click', () => { window.location.href = '../checkout/' });
     }
 });

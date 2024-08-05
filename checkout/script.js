@@ -6,11 +6,11 @@ document.getElementById('country-select').addEventListener('change', function ()
     }
 })
 
-const toggleCheckoutForm = ()=>{
+const toggleCheckoutForm = () => {
     const formToggleBtn = document.querySelector('.payment-btn.form-toggeler span')
     let inputs = document.querySelectorAll('.checkout-section input');
     inputs = Array.from(inputs)
-    inputs = inputs.slice(0,8)
+    inputs = inputs.slice(0, 8)
     inputs.push(document.querySelector('.checkout-section select'))
     for (let i = 0; i < inputs.length; i++) {
         if (!inputs[i].value) {
@@ -20,7 +20,7 @@ const toggleCheckoutForm = ()=>{
     }
     if (formToggleBtn.innerText === 'Payment') {
         formToggleBtn.innerText = 'Shipping'
-    }else{
+    } else {
         formToggleBtn.innerText = 'Payment'
     }
     document.querySelector('.checkout-section').classList.toggle('payment-toggled')
@@ -45,7 +45,7 @@ shippingTax.innerHTML = "$ " + shippingAmount;
 total.innerHTML = '$ ' + calculateSubTotal(cartItems.length > 0 ? 10 : 0);
 document.querySelector('.your-order .order-count').innerHTML = `(${cartItems.length})`
 
-document.getElementById('your-order-items').innerHTML = cartItems.map((item)=>`
+document.getElementById('your-order-items').innerHTML = cartItems.map((item) => `
 <div class="order-item">
     <img src="${item.image}" alt="order-image" class="order-image">
     <div class="order-details">
@@ -61,7 +61,7 @@ document.getElementById('your-order-items').innerHTML = cartItems.map((item)=>`
         </div>
 </div>`).join('');
 
-const confirmOrder = (e)=>{
+const confirmOrder = (e) => {
     e.preventDefault();
     let inputs = document.querySelectorAll('.checkout-section input');
     inputs = Array.from(inputs);
@@ -74,6 +74,6 @@ const confirmOrder = (e)=>{
     localStorage.removeItem('cart')
     document.querySelector('div.checkout-section').innerHTML = `<h1>Your order Confirmed Successfully </br> You will be redirect to Home page...</h1>`
     setTimeout(() => {
-        window.location.href = '/'
+        window.location.href = '../'
     }, 5000);
 }

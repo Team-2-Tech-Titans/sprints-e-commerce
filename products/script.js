@@ -63,7 +63,7 @@ const displayProducts = (products) => {
   productListing.innerHTML = products
     .map(
       (prod) => `
-        <div class="product-card" onclick="window.location.href='/product/?id=${
+        <div class="product-card" onclick="window.location.href='../product/?id=${
           prod.articles[0].code
         }'">
             <img src="${prod.images[0].url}" alt="${prod.name}">
