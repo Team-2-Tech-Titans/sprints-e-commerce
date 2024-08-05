@@ -277,3 +277,13 @@ body.dark-mode .orderSummary button:hover{
     border: 1px solid #222;
     color: #222;
 }
+body.dark-mode .fa-arrows-rotate, 
+body.dark-mode .fa-xmark,
+body.dark-mode .custom-select
+{
+    color: white;
+}
+body.dark-mode .refreshIcon:hover,
+body.dark-mode .fa-xmark:hover{
+    color: white;
+}
