@@ -17,12 +17,11 @@ const displayData = async () => {
         const data = await response.json();
         globData = data
         const product = data.product.articlesList[0];
-        console.log(data);
         if (!product) {
             productDetails.innerHTML = "<p>Product not found.</p>";
             return;
         }
-        const price = product.redPrice ? product.redPrice.price : product.price;
+        const price = product.redPrice ? product.redPrice.price : product.whitePrice.price;
         const oldPrice = product.whitePrice ? product.whitePrice.price : null;
         productDetails.innerHTML = `
                                 <div class="product-images">
@@ -48,8 +47,8 @@ const displayData = async () => {
                                     <h1>${product.name}</h1>
                                     <div class="price-container">
                                         <div>
-                                            <span class="product-price">${price}$</span>
-                                            ${oldPrice ? `<span class="product-old-price">${oldPrice}$</span>` : ''}
+                                            <span class="product-price" style="color:${!product.redPrice ? '#111' : ''}">${price}$</span>
+                                            ${product.redPrice ? `<span class="product-old-price">${oldPrice}$</span>` : ''}
                                         </div>
                                         ${product.percentageDiscount ? `<span class="discount">${product.percentageDiscount}</span>` : ''}
                                     </div>
@@ -111,7 +110,7 @@ const handleAddItem = () => {
             id: globData.product.articlesList[productIdIndex].code,
             name: globData.product.name,
             category: globData.product.mainCategory.name,
-            price: globData.product.redPrice ? globData.product.redPrice.price : globData.product.price,
+            price: globData.product.redPrice ? globData.product.redPrice.price : globData.product.whitePrice.price,
             image: document.querySelector(".product-big-image").src,
             color: document.querySelector('.colors-container input[type="radio"]:checked').value,
             size: document.querySelector('.sizes-container input[type="radio"]:checked').value,

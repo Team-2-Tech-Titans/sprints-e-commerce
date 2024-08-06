@@ -39,7 +39,7 @@ const getCollection = async () => {
 
 const displayProducts = (products, listing) => {
     listing.innerHTML = products.map(prod => `
-        <div class="product-card" onclick="window.location.href='/product/?id=${prod.articles[0].code}'" data-categ="${prod.categoryName}">
+        <div class="product-card" onclick="window.location.href='./product/?id=${prod.articles[0].code}'" data-categ="${prod.categoryName}">
             <img src="${prod.images[0].url}" alt="${prod.name}">
             <div class="product-info">
                 <span>Category: ${prod.categoryName} ${prod.rgbColors ? `<span class="prod-card-color" style="background-color:${prod.rgbColors[0]}"></span>${prod.rgbColors.length > 1 ? `+${prod.rgbColors.length}` : ""}` : ""}</span>
