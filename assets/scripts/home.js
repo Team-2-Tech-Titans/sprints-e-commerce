@@ -6,7 +6,7 @@ const collectionListing = document.getElementById("home-collection");
 const options = {
     method: "GET",
     headers: {
-        "x-rapidapi-key": "c11ad67790msh6b1792a2dc22fecp148e16jsn25c9cb731fa6",
+        "x-rapidapi-key": "1593260f82mshdcb446d9db461a0p1b63f3jsnce857f8b03e0",
         "x-rapidapi-host": "apidojo-hm-hennes-mauritz-v1.p.rapidapi.com",
     },
 };
@@ -39,7 +39,7 @@ const getCollection = async () => {
 
 const displayProducts = (products, listing) => {
     listing.innerHTML = products.map(prod => `
-        <div class="product-card" onclick="window.location.href='/product/?id=${prod.articles[0].code}'" data-categ="${prod.categoryName}">
+        <div class="product-card" onclick="window.location.href='./product/?id=${prod.articles[0].code}'" data-categ="${prod.categoryName}">
             <img src="${prod.images[0].url}" alt="${prod.name}">
             <div class="product-info">
                 <span>Category: ${prod.categoryName} ${prod.rgbColors ? `<span class="prod-card-color" style="background-color:${prod.rgbColors[0]}"></span>${prod.rgbColors.length > 1 ? `+${prod.rgbColors.length}` : ""}` : ""}</span>
