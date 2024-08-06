@@ -3,7 +3,8 @@
   font-style: normal;
   font-weight: normal;
   src: local("Beatrice Deck Trial Regular"),
-    url("../../webfonts/BeatriceDeckTRIAL-Regular-BF64829e8e41476.woff") format("woff");
+    url("../../webfonts/BeatriceDeckTRIAL-Regular-BF64829e8e41476.woff")
+      format("woff");
 }
 
 @font-face {
@@ -11,7 +12,8 @@
   font-style: normal;
   font-weight: normal;
   src: local("Beatrice Deck Trial Medium"),
-    url("../../webfonts/BeatriceDeckTRIAL-Medium-BF64829e8e8d71a.woff") format("woff");
+    url("../../webfonts/BeatriceDeckTRIAL-Medium-BF64829e8e8d71a.woff")
+      format("woff");
 }
 
 @font-face {
@@ -19,7 +21,8 @@
   font-style: normal;
   font-weight: normal;
   src: local("Beatrice Deck Trial Bold"),
-    url("../../webfonts/BeatriceDeckTRIAL-Bold-BF64829e8e9ca08.woff") format("woff");
+    url("../../webfonts/BeatriceDeckTRIAL-Bold-BF64829e8e9ca08.woff")
+      format("woff");
 }
 
 * {
@@ -28,6 +31,9 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
+  -webkit-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -moz-tap-highlight-color: rgba(255, 255, 255, 0) !important;
+  -webkit-focus-ring-color: rgba(255, 255, 255, 0) !important;
 }
 
 html {
@@ -875,8 +881,8 @@ h1 {
   padding: 10px;
 }
 
-.sizes-container input[type="radio"]:checked+label,
-.colors-container input[type="radio"]:checked+label {
+.sizes-container input[type="radio"]:checked + label,
+.colors-container input[type="radio"]:checked + label {
   background-color: #ccc;
   opacity: 1;
 }
@@ -1472,7 +1478,7 @@ section.checkout-section {
   top: 0;
   right: 0;
   background: white;
-  color: #000E8A;
+  color: #000e8a;
 }
 
 #your-order-items {
@@ -1505,7 +1511,7 @@ section.checkout-section {
   width: 100%;
 }
 
-.order-details>div {
+.order-details > div {
   display: flex;
   justify-content: space-between;
 }
@@ -1560,7 +1566,7 @@ footer {
   font-size: 12px;
 }
 
-.footer-body>.footer-text>div>span {
+.footer-body > .footer-text > div > span {
   margin-bottom: 25px;
 }
 
